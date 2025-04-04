@@ -1,0 +1,62 @@
+---
+title: "Session 1: Data types and summary statistics"
+date: "2025-04-04"
+author: Chris Mainey
+date-format: "D MMMM YYYY"
+format: bsol-html
+execute:
+  echo: false
+  cache: true              # Cache results
+  warning: false           # Do not include warnings in rendered output
+  error: false             # Do not include errors in the output
+  feeze: auto              # Re-compute previously generated computational output only in case their source file changes
+crossref:
+  fig-title: '**Figure**'
+  fig-labels: arabic
+---
+
+```{r}
+#| label: load-libraries
+#| warning: false
+#| output: false
+#| echo: false
+
+
+# Load the required library
+library(ggplot2)
+library(plotly)
+library(tidyverse)
+library(DT)
+
+```
+
+# Introduction 
+## Data 
+
+::: {.grid}
+
+:::{.g-col-6}
+
++ We are not interested simply in measurements, or individual datum.
+
++ We are usually trying to answer a question / learn something / make a decision
+
++ When use data, we need to bring some order to it
+
++ We will conser structured data 
+
+:::
+
+:::{.g-col-6}
+<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/256px-DIKW_Pyramid.svg.png?20220726215947"></a>
+:::
+
+
+
+<!-- Replace the directory of where the logo is saved, e.g., ML_logo.png in the "Logo" folder -->
+```{=html}
+
+<div class="footer-banner">
+  <img src="_extensions/Birmingham-and-Solihull-ICS/bsol_html/Logo/ML_logo.png" alt="ML Logo" class="footer-logo left-logo" />
+  <img src="_extensions/Birmingham-and-Solihull-ICS/bsol_html/Logo/ICB_logo.png" alt="ICB Logo" class="footer-logo right-logo" />
+</div>

@@ -1,0 +1,43 @@
+title: "BSOL HTML Document theme"
+author: Siti Hassan
+version: 1.0.0
+contributes: 
+  format:
+    html:
+      # Table of Contents options
+      toc: true
+      toc-depth: 3
+      toc-expand: true
+      toc-location: left
+      toc-title: Table of Contents
+      number-sections: false
+      number-depth: 3
+      # Render options
+      theme: [cosmo, theme.scss]  # Replace this with the directory of your css file (e.g., theme.css is within 'CSS' folder in the parent folder)
+      anchor-sections: false
+      html-math-method: katex
+      # Code options
+      code-tools:
+        source: false
+        toggle: false
+        caption: none
+      code-fold: false
+      # code-summary: "Show code"
+      embed-resources: true
+      standalone: true
+      # URL options
+      link-external-icon: true
+      link-external-newwindow: true
+      # Reference options
+      citations-hover: true
+      footnotes-hover: true
+      # Callout options
+      callout-appearance: simple
+      callout-collapse: true
+      # Caption options
+      cap-location: bottom
+      # Title options
+      title-block-banner: '#005EB8'
+      backgroundcolor: '#f0f4f5'
+      # Set font
+      mainfont: 'Open Sans'
