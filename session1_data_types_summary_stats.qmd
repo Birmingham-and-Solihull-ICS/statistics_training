@@ -3,7 +3,9 @@ title: "Session 1: Data types and summary statistics"
 date: "2025-04-04"
 author: Chris Mainey
 date-format: "D MMMM YYYY"
-format: bsol-html
+format: bsol-format:
+  revealjs: 
+    theme: dark
 execute:
   echo: false
   cache: true              # Cache results
