@@ -4,9 +4,12 @@ date: "2025-04-04"
 author: Chris Mainey
 date-format: "D MMMM YYYY"
 format: bsol-html
+fig-align: 'center'
+fig-width: 7
+fig-height: 5 
 execute:
   echo: false
-  cache: true              # Cache results
+  cache: false             # Cache results
   warning: false           # Do not include warnings in rendered output
   error: false             # Do not include errors in the output
   feeze: auto              # Re-compute previously generated computational output only in case their source file changes
@@ -23,14 +26,20 @@ crossref:
 
 
 # Load the required library
+
 library(ggplot2)
 library(plotly)
 library(tidyverse)
+library(scales)
 library(DT)
 library(BSOLTheme)
 
 theme_set(
-  theme_bsol()
+  theme_bsol() +
+    theme(axis.text = element_text(size = unit(20, "pt")),
+          axis.title = element_text(size = unit(20, "pt")),
+          text = element_text(size = unit(20, "pt"))
+          )
 )
 
 ```
@@ -98,7 +107,7 @@ A few major groups of data types:
 
   + E.g. Number of patients seen in a clinic could be 35 or 36 but not 35.5
   
-  + <span style="color:SandyBrown; font-size:18px;"> Examples in NHS: </span> counts of patients, waiting time measured in whole minutes, length of stay measured in days (like HED/HES), number of patient episodes
+  + <span style="color:SandyBrown; font-size:18px;"> Examples in NHS: </span> counts of patients, waiting time measured in whole minutes, length of stay measured in days, number of patient episodes
 
 
 
@@ -144,12 +153,12 @@ ___“Dear BI team, I would like age of all patients admitted as an emergency to
 <br><br>
 
 ```{r ages, echo=FALSE, cache=TRUE}
-ages<-c(75,81,59,70,64,67,66,54,68,72,80,66,70,76,75,52,59,52,86,56,51,59,72,61,53,72,75,69,64,55,74,54,61,74,86,53,68,69,76,
-        58,59,79,59,69,91,55,59,68,58,70,68,60,89,54,85,76,56,56,84,91,90,87,90,85,54,76,91,79,53,62,72,69,75,76,76,76,63,85,
-        76,85,67,63,91,63,64,69,63,60,57,83,69,60,58,70,59,85,68,85,56,79,85,76,76,73,60,87,57,67,72,92,58,55,54,71,90,55,58,
-        59,63,77,85,77,53,66,73,53,79,70,70,77,56,65,85,64,74,66,74,59,68,79,66,56,68,63,66,66,68,70,64,72,56,83,53,69,67,77,
-        68,63,73,57,86,52,75,78,76,61,71,77,64,62,77,69,69,66,85,65,61,72,69,73,53,77,54,56,72,70,69,67,62,78,58,54,69,76,86,
-        59,80,84,56,78,75,57,68,91,91)
+ages <- c(75,81,59,70,64,67,66,54,68,72,80,66,70,76,75,52,59,52,86,56,51,59,72,61,53,72,75,69,64,55,74,54,61,74,86,53,68,69,76,
+          58,59,79,59,69,91,55,59,68,58,70,68,60,89,54,85,76,56,56,84,91,90,87,90,85,54,76,91,79,53,62,72,69,75,76,76,76,63,85,
+          76,85,67,63,91,63,64,69,63,60,57,83,69,60,58,70,59,85,68,85,56,79,85,76,76,73,60,87,57,67,72,92,58,55,54,71,90,55,58,
+          59,63,77,85,77,53,66,73,53,79,70,70,77,56,65,85,64,74,66,74,59,68,79,66,56,68,63,66,66,68,70,64,72,56,83,53,69,67,77,
+          68,63,73,57,86,52,75,78,76,61,71,77,64,62,77,69,69,66,85,65,61,72,69,73,53,77,54,56,72,70,69,67,62,78,58,54,69,76,86,
+          59,80,84,56,78,75,57,68,91,91)
 
 ages
 ```
@@ -158,7 +167,7 @@ ages
 
 #### How would you answer that question?
 
-What is the question really asking?  It's quite unlikely that sending a list of numbers really answerers the question in a useful way.  They requester may have various different questions, but they probably want some idea of the range, but also how the people are distributed across different ages.
+What is the question really asking?  It's quite unlikely that sending a list of numbers really answers the question.  They requester may have various different questions, but they probably want some idea of the range of ages, but also how the people are distributed across different ages.
 
 - How might we show this in a better way?
 
@@ -184,18 +193,19 @@ What is the question really asking?  It's quite unlikely that sending a list of 
 :::{.g-col-6}
 Plots and `x` variable by a `y` variable by point
 
-#### Why doesn't this help?
+___Why doesn't this help?___
 
 - We've only got one variable, not two
 - No summary information
 - We want to see some kind of distribution 
 
 
-:::
-
-:::{.g-col-6}
 ```{r scatter}
-plot(ages)
+plot(ages,  
+     cex.main=2, #change font size of title
+     cex.sub=2, #change font size of subtitle
+     cex.lab=2, #change font size of axis labels
+     cex.axis=2)
 ```
 :::
 
@@ -302,7 +312,7 @@ ggplot(as.data.frame(ages), aes(x = ages)) +
 :::
 
 
-## Box Plots
+### Box Plots
 
 ::: grid
 
@@ -338,7 +348,7 @@ ggplot(as.data.frame(ages),
 
 We commonly want some measure of the Central point, and description of ‘weight’ of data
 
-+ <span style="color:DodgerBlue;"> “Mean” </span> is average of data, calculated centre \bar(x)
++ <span style="color:DodgerBlue;"> “Mean” </span> is average of data, calculated centre $\bar{x}$
 + <span style="color:DodgerBlue;"> “Median” </span> is middle value in rank order
 + <span style="color:DodgerBlue;"> “Mode” </span> is the most common value
 
@@ -354,51 +364,52 @@ We commonly want some measure of the Central point, and description of ‘weight
 
 
 
-### The Normal Distribution (1)
+### The Normal Distribution
 <br><br>
 ```{r Norm1}
 set.seed(3000)
 
-norm.dist<- data.frame(
-  value<-seq(1,1000,1),
-  densities=dnorm(value, 500,150)
+norm.dist <- data.frame(
+  value = seq(1, 1000, 1),
+  densities = dnorm(seq(1, 1000, 1), 500, 150)
   
 )
 
 #plot density from table.  Using GGplot, as I can define a plot object 'p' in this case, and keep adding layers.
-p<-ggplot(norm.dist, aes(x=value, y=densities))+
+p <- 
+  ggplot(norm.dist, aes(x=value, y=densities))+
   geom_line(size=1.2)+
-  scale_x_continuous(breaks= seq(0,1000,100) , minor_breaks = seq(0,1000,50))+
-  scale_y_continuous(breaks= seq(0,0.0035, 0.001) , minor_breaks = seq(0,0.0035, 0.0005), limits=c(0, 0.003))
+  scale_x_continuous(breaks= seq(0, 1000, 100) , minor_breaks = seq(0, 1000, 50)) +
+  scale_y_continuous(breaks= seq(0, 0.0035, 0.001) , minor_breaks = seq(0,0.0035, 0.0005), limits = c(0, 0.003))
 
 p
 
 ```
 
 
-### The Normal Distribution (2)
+### Mean is in the centre of the curve
 $$ {\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i   = \frac{sum(x_i)}{count(x_i)} }$$
 ```{r Norm2}
 
 
 # add mean line and label
-p <- p + geom_vline(aes(xintercept = 500), col = "red", linetype = 2, size = 1.2, alpha = 0.5) +
-  geom_text(aes(x = 500, y = 0.0028, label = "mean"), col = "red", alpha = 0.5)
+p <- p + geom_vline(aes(xintercept = 500), col = "red", linetype = 2, size = 1.2, alpha = 0.4) +
+  annotate("text", x = 500, y = 0.0028, label = "mean", col = "red", alpha = 0.8, size = unit(8, "pt"))
 
 p
 
 ```
 
 
-### The Normal Distribution (3)
-$$ sd = \sqrt{ \frac{\sum_{i=1}^n x_i \left(x_i - \bar{x}^2 \right)}{n-1}}  =   sqrt\left(\frac{sum((x_i-\bar{x})^2)}{n-1}\right)$$
+### Mean + standard deviation
+$$ sd = \sqrt{ \frac{\sum_{i=1}^n \left(x_i - \bar{x}^2 \right)}{n-1}}  =   sqrt\left(\frac{sum((x_i-\bar{x})^2)}{n-1}\right)$$
 ```{r Norm3}
 
 # add 1sd lines
 p <- p + geom_vline(aes(xintercept = 350), col = "goldenrod", linetype = 2, size = 1.2, alpha = 0.7) +
   geom_vline(aes(xintercept = 650), col = "goldenrod", linetype = 2, size = 1.2, alpha = 0.7) +
-  geom_text(aes(x = 350, y = 0.0028, label = "mean-sd"), col = "goldenrod", alpha = 0.5) +
-  geom_text(aes(x = 650, y = 0.0028, label = "mean+sd"), col = "goldenrod", alpha = 0.5) +
+  annotate("text", x = 350, y = 0.0028, label = "mean-sd", col = "goldenrod", alpha = 0.5, size = unit(8, "pt")) +
+  annotate("text", x = 650, y = 0.0028, label = "mean+sd", col = "goldenrod", alpha = 0.5, size = unit(8, "pt")) +
   theme()
 
 p
@@ -406,7 +417,7 @@ p
 ```
 
 
-### The Normal Distribution (4)
+### How much of the distribution is here?
 <br><br>
   
 ```{r Norm4}
@@ -414,41 +425,7 @@ p
 # add 1sd lines
 p <- p + geom_segment(aes(x = 350, xend = 650, y = 0.002, yend = 0.002), size = 1,  
                    arrow = arrow(ends = "both", type = "closed", length = unit(0.25, "cm")), col = "dodgerblue2") +
-  geom_text(aes(x = 500, y = 0.00206, label = "68.27%"),  size = 4, col = "dodgerblue2")
-p
-```
-
-
-### The Normal Distribution (5)
-<br><br>
-```{r Norm5}
-
-#add two sd lines 
-p <- p + geom_vline(aes(xintercept = 200), col = "palegreen4", linetype = 2, size = 1.2, alpha = 0.7) +
-  geom_vline(aes(xintercept = 800), col = "palegreen4", linetype = 2, size = 1.2, alpha = 0.7)+
-  geom_text(aes(x = 200, y = 0.0028, label = "mean-2*sd"), col = "palegreen4", alpha = 0.5)+
-  geom_text(aes(x = 800, y = 0.0028, label = "mean+2*sd"), col = "palegreen4", alpha = 0.5)
-
-p
-
-```
-
-
-
-
-
-### The Normal Distribution (6)
-<br><br>
-
-```{r Norm6}
-
-# add 2 sd label
-p <- p + geom_segment(aes(x = 200, xend = 800, y = 0.00125, yend = 0.00125),
-  size = 1,
-  arrow = arrow(ends = "both", type = "closed", length = unit(0.25, "cm")), col = "dodgerblue2"
-) +
-  geom_text(aes(x = 500, y = 0.00131, label = "95.45%"), size = 4, col = "dodgerblue2")
-
+  annotate("text", x = 500, y = 0.00206, label = "68.27%", col = "dodgerblue2", size = unit(8, "pt"))
 p
 ```
 
@@ -456,19 +433,20 @@ p
 
 ### The Normal Distribution (7)
 <br><br>
+
 ```{r Norm7}
 # add 3 sd lines
 p <- p + geom_vline(aes(xintercept = 50), col = "chocolate4", linetype = 2, size = 1.2, alpha = 0.7) +
   geom_vline(aes(xintercept = 950), col = "chocolate4", linetype = 2, size = 1.2, alpha = 0.7) +
-  geom_text(aes(x = 50, y = 0.0028, label = "mean-3*sd"), col = "chocolate4", alpha = 0.5) +
-  geom_text(aes(x = 950, y = 0.0028, label = "mean+3*sd"), col = "chocolate4", alpha = 0.5)
+  annotate("text", x = 50, y = 0.0028, label = "mean-3*sd", col = "chocolate4", alpha = 0.5, size = unit(8, "pt"))  +
+  annotate("text", x = 950, y = 0.0028, label = "mean+3*sd", col = "chocolate4", alpha = 0.5, size = unit(8, "pt"))
 
 # add 3 sd label
 p <- p + geom_segment(aes(x = 50, xend = 950, y = 0.0005, yend = 0.0005),
   size = 1,
   arrow = arrow(ends = "both", type = "closed", length = unit(0.25, "cm")), col = "dodgerblue2"
 ) +
-  geom_text(aes(x = 500, y = 0.00056, label = "99.73%"), size = 4, col = "dodgerblue2")
+  annotate("text", x = 500, y = 0.00056, label = "99.73%", col = "dodgerblue2", size = unit(8, "pt"))
 
 p
 ```
@@ -603,11 +581,14 @@ s_qtl
 
 - 25th and 75th percentiles commonly used
 
-- 75th - 25th ntile referred to as ‘Inter-quartile range’ (IQR).
+- 75th - 25th percentile referred to as ‘Inter-quartile range’ (IQR).
 
-- Can also list extremes of distribution.
+- We can also list extremes of distribution, or 5th and 95th percentiles.
 
-- Mean & SD not a good representation
+- 'Five-number summary': minimum, "lower-hinge", median, "upper-hinge", maximum
+  - 'hinge' is the median of upper of lower half, usually the 25th percentile.
+
+- Mean & SD not a good representation as the mean is affected by the extreme values and the standard deviation assumes symmetrical shape either side of mean.
 
 
 
@@ -662,7 +643,79 @@ s_qtl
 <img src = "./assets/img/percentiles2.png" height="500" width="400" class="center">
 :::
 :::
+
+
+# Summarising Binary or categorical 
+
+We have fewer options here, and some of the methods above are not suitable for these types:
+
+We can use:
+
++ Counts / frequency in groups
++ Percentage for relative values - lose absolute values
+
+As an example, we will use the ages data set but group it into 10-year categories.
+
+```{r catsplot}
+# break points
+break_points <- c(50, 60, 70, 80, 90, 100)
+
+# Use the cut function with custom break points
+ten_yr_ages <-
+  data.frame(
+    ages,
+    age_band = factor(cut(ages, breaks = break_points, labels = FALSE),
+                      levels = seq(5), labels = c("50 - 59", "60-69", "70 - 79"
+                                                  ,"80 - 89", "90 - 99"),
+                      ordered = TRUE
+    )
+  )
+```
+
+::: {.grid}
+
+:::{.g-col-6}
+```{r cat_plot1}
+ggplot(ten_yr_ages, aes(x = age_band, fill= age_band)) +
+  geom_bar(alpha=0.7, show.legend = FALSE) +
+  labs(title = "Numer of admission in age groups",
+       x = "Age band") +
+  scale_colour_bsol()
+```
+
+:::
+
+:::{.g-col-6}
+
+```{r cat_plot2}
+ten_yr_ages |> 
+  group_by(age_band) |> 
+  summarise(perc = n()/205) |> 
+  ggplot(aes(x = age_band, y = perc, fill = age_band)) +
+  geom_col(alpha = 0.7, show.legend = FALSE) +
+  labs(title = "Percentage of admission in age groups",
+        x = "Age band") +
+  scale_colour_bsol() +
+  scale_y_continuous(labels = percent)
   
+```
+
+:::
+
+:::
+
+# Summary
+
++ Is the question asking about the data, or for you to do something with the data to summarise?
+
++ Consider data type:
+  + Numeric / Binary / Categorical
+  + Within that, is it discrete / ordered etc.
+  
++ Plot it accordingly
+
++ Chose appropriate summary statistics
+
 
 ```{=html}
 
