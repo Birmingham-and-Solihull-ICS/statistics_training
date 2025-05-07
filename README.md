@@ -7,3 +7,9 @@
 
 This repository contains code and material for statistics training in BSOL ICB.
 Pages are built in R and Quarto, displayed as html
+
+
+
+## Click here to access material:
+
+https://birmingham-and-solihull-ics.github.io/statistics_training/
