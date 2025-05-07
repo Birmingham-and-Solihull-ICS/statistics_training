@@ -502,6 +502,17 @@ $$ \large z = \frac{(x - \bar{x})}{sd}$$
 
 ## Skewed Distributions
 
+Not all distributions follow the pattern we've seen above.  We call these non-symmetrical distributions 'skewed' and they can't be treated in quite the same way.  Our normal (or "parametric" methods) assume the same shape / distribution on both sides of a mean.
+
+> Imagine the case of hospital leng-of-stay.  What happens here?
+
++ Measured in days:  numeric, discrete
+
++ Can't be < 0, so there is a hard limit at zero
+
++ Rarely, some patients stay in a really long time.
+
+
 ```{r skew1}
 
 library(sn)
@@ -525,8 +536,10 @@ levels(skew_t$key) <- c("Left skew", "Right skew")
 
 
 # ggplot, using 'facet' to split into two plots according to 'key'
-s <- ggplot(skew_t, aes(x = value, col = key, fill = key)) +
-  geom_histogram(alpha = 0.5) +
+s <- 
+  ggplot(skew_t, aes(x = value, fill = key)) +
+  geom_histogram(alpha = 0.5, col = "grey", show.legend = FALSE) +
+  scale_fill_viridis_d(aesthetics = c("fill")) +
   facet_grid(~key)
 
 s
@@ -536,6 +549,8 @@ s
 
 ## Summarising Skewed Data
 
+We might describe data as "left" or "right" skewed.  This has effects on the mean, but not the median.
+
 ```{r skew2}
 ### Add summary statistics.  R doesn't have a 'mode' function so here's a used defined one:
 getmode <- function(x) {
@@ -543,19 +558,23 @@ getmode <- function(x) {
   ux[which.max(tabulate(match(x, ux)))]
 }
 
+lines_dt <-
+  data.frame(measure = c("mean", "median", "model", "mean", "median", "model"),
+             value = c(mean(skew$l), median(skew$l), getmode(skew$l), mean(skew$r), median(skew$r), getmode(skew$r)),
+             key = c("Left skew","Left skew","Left skew", "Right skew", "Right skew", "Right skew")
+             )
 
 # Add pre-calculated lines for mean, median and mode.
-s <- s + geom_vline(aes(xintercept = value, col = "mean"), size = 1, linetype = 2, data = data.frame(key = rbind("Left skew", "Right skew"), value = rbind(l = mean(skew$l), r = mean(skew$r)))) +
-  geom_vline(aes(xintercept = value, col = "median"), size = 1, linetype = 2, data = data.frame(key = rbind("Left skew", "Right skew"), value = rbind(l = median(skew$l), r = median(skew$r)))) +
-  geom_vline(aes(xintercept = value, col = "mode"), size = 1, linetype = 2, data = data.frame(key = rbind("Left skew", "Right skew"), value = rbind(l = getmode(skew$l), r = getmode(skew$r)))) +
-  scale_colour_manual(values = c("mean" = "2", "median" = "3", "mode" = "4"), limits = c("mean", "median", "mode")) +
-  guides(fill = FALSE)
+s <- 
+  s + 
+  geom_vline(aes(xintercept = value, linetype = measure), col= "black", data = lines_dt) +
+    guides(fill = FALSE) 
 
 s
 ```
 
 
-## Summarising Skewed Data (2)
+## Summarising Skewed Data with percentiles
 
 ```{r skew3}
 qtiles<-
@@ -567,7 +586,8 @@ qtiles<-
   gather()
 
 #ggplot, using 'facet' to split into two plots according to 'key'
-s_qtl<-ggplot(skew_t[skew_t$key=="Left skew",], aes(x=value))+
+s_qtl <- 
+  ggplot(skew_t[skew_t$key=="Left skew",], aes(x=value))+
   geom_histogram(alpha=0.5, bins=50,  colour="#F8766D",  fill="#F8766D")+
   geom_vline(aes(xintercept=value, group=key, col=key), data=qtiles, size =1)
 
