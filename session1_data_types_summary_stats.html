@@ -2254,7 +2254,7 @@ window.Quarto = {
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">“Data”</a></li>
   <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
   </ul></li>
-  <li><a href="#summarising-data" id="toc-summarising-data" class="nav-link" data-scroll-target="#summarising-data">Summarising Data</a>
+  <li><a href="#summarising-numeric-data" id="toc-summarising-numeric-data" class="nav-link" data-scroll-target="#summarising-numeric-data">Summarising Numeric Data</a>
   <ul class="collapse">
   <li><a href="#visualising-data-types" id="toc-visualising-data-types" class="nav-link" data-scroll-target="#visualising-data-types">Visualising data types:</a>
   <ul class="collapse">
@@ -2263,23 +2263,21 @@ window.Quarto = {
   <li><a href="#histograms-and-bar-charts" id="toc-histograms-and-bar-charts" class="nav-link" data-scroll-target="#histograms-and-bar-charts">Histograms and Bar Charts</a></li>
   <li><a href="#kernel-density" id="toc-kernel-density" class="nav-link" data-scroll-target="#kernel-density">Kernel Density</a></li>
   <li><a href="#box-plots" id="toc-box-plots" class="nav-link" data-scroll-target="#box-plots">Box Plots</a></li>
+  <li><a href="#summary-figures" id="toc-summary-figures" class="nav-link" data-scroll-target="#summary-figures">Summary figures</a></li>
   </ul></li>
-  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions">Distributions</a>
+  <li><a href="#the-normal-or-gaussian-distribution" id="toc-the-normal-or-gaussian-distribution" class="nav-link" data-scroll-target="#the-normal-or-gaussian-distribution">The ‘Normal’ or ‘Gaussian’ distribution:</a>
   <ul class="collapse">
-  <li><a href="#theoretical-normal-distribution" id="toc-theoretical-normal-distribution" class="nav-link" data-scroll-target="#theoretical-normal-distribution">Theoretical ‘Normal’ distribution:</a></li>
   <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution">The Normal Distribution</a></li>
   <li><a href="#mean-is-in-the-centre-of-the-curve" id="toc-mean-is-in-the-centre-of-the-curve" class="nav-link" data-scroll-target="#mean-is-in-the-centre-of-the-curve">Mean is in the centre of the curve</a></li>
   <li><a href="#mean-standard-deviation" id="toc-mean-standard-deviation" class="nav-link" data-scroll-target="#mean-standard-deviation">Mean + standard deviation</a></li>
   <li><a href="#how-much-of-the-distribution-is-here" id="toc-how-much-of-the-distribution-is-here" class="nav-link" data-scroll-target="#how-much-of-the-distribution-is-here">How much of the distribution is here?</a></li>
-  <li><a href="#the-normal-distribution-7" id="toc-the-normal-distribution-7" class="nav-link" data-scroll-target="#the-normal-distribution-7">The Normal Distribution (7)</a></li>
-  <li><a href="#the-normal-distribution-8" id="toc-the-normal-distribution-8" class="nav-link" data-scroll-target="#the-normal-distribution-8">The Normal Distribution (8)</a></li>
-  <li><a href="#the-normal-distribution-9" id="toc-the-normal-distribution-9" class="nav-link" data-scroll-target="#the-normal-distribution-9">The Normal Distribution (9)</a></li>
+  <li><a href="#adding-in-more-standard-deviations" id="toc-adding-in-more-standard-deviations" class="nav-link" data-scroll-target="#adding-in-more-standard-deviations">Adding in more standard deviations</a></li>
   </ul></li>
   <li><a href="#z-scores" id="toc-z-scores" class="nav-link" data-scroll-target="#z-scores">Z-scores</a></li>
   <li><a href="#skewed-distributions" id="toc-skewed-distributions" class="nav-link" data-scroll-target="#skewed-distributions">Skewed Distributions</a></li>
   <li><a href="#summarising-skewed-data" id="toc-summarising-skewed-data" class="nav-link" data-scroll-target="#summarising-skewed-data">Summarising Skewed Data</a></li>
   <li><a href="#summarising-skewed-data-with-percentiles" id="toc-summarising-skewed-data-with-percentiles" class="nav-link" data-scroll-target="#summarising-skewed-data-with-percentiles">Summarising Skewed Data with percentiles</a></li>
-  <li><a href="#summarising-skewed-data-3" id="toc-summarising-skewed-data-3" class="nav-link" data-scroll-target="#summarising-skewed-data-3">Summarising Skewed Data (3)</a></li>
+  <li><a href="#summarising-skewed-data-principles" id="toc-summarising-skewed-data-principles" class="nav-link" data-scroll-target="#summarising-skewed-data-principles">Summarising Skewed Data principles</a></li>
   <li><a href="#how-do-we-calculate-a-percentile" id="toc-how-do-we-calculate-a-percentile" class="nav-link" data-scroll-target="#how-do-we-calculate-a-percentile">How do we calculate a percentile?</a></li>
   <li><a href="#how-do-we-calculate-a-percentile-2" id="toc-how-do-we-calculate-a-percentile-2" class="nav-link" data-scroll-target="#how-do-we-calculate-a-percentile-2">How do we calculate a percentile? (2)</a></li>
   </ul></li>
@@ -2383,8 +2381,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="summarising-data" class="level1">
-<h1>Summarising Data</h1>
+<section id="summarising-numeric-data" class="level1">
+<h1>Summarising Numeric Data</h1>
 <p><br><br> <strong><em>“Dear BI team, I would like age of all patients admitted as an emergency to general medicine in December?”</em></strong></p>
 <p><br><br></p>
 <div class="cell">
@@ -2557,9 +2555,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-</section>
-<section id="distributions" class="level2">
-<h2 data-anchor-id="distributions">Distributions</h2>
+<section id="summary-figures" class="level3">
+<h3 data-anchor-id="summary-figures">Summary figures</h3>
 <p>We commonly want some measure of the Central point, and description of ‘weight’ of data</p>
 <ul>
 <li><span style="color:DodgerBlue;"> “Mean” </span> is average of data, calculated centre <span class="math inline">\bar{x}</span></li>
@@ -2567,14 +2564,16 @@ window.Quarto = {
 <li><span style="color:DodgerBlue;"> “Mode” </span> is the most common value</li>
 </ul>
 <p><br></p>
-<section id="theoretical-normal-distribution" class="level3">
-<h3 data-anchor-id="theoretical-normal-distribution">Theoretical ‘Normal’ distribution:</h3>
+</section>
+</section>
+<section id="the-normal-or-gaussian-distribution" class="level2">
+<h2 data-anchor-id="the-normal-or-gaussian-distribution">The ‘Normal’ or ‘Gaussian’ distribution:</h2>
 <ul>
 <li>Equally distributed with most common values in the centre.</li>
+<li>‘Bell-curve’</li>
 <li>Mean, median and mode are identical</li>
-<li>Principles apply more widely</li>
+<li>Principles apply more widely to lots of areas of statistics</li>
 </ul>
-</section>
 <section id="the-normal-distribution" class="level3">
 <h3 data-anchor-id="the-normal-distribution">The Normal Distribution</h3>
 <p><br><br></p>
@@ -2627,8 +2626,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="the-normal-distribution-7" class="level3">
-<h3 data-anchor-id="the-normal-distribution-7">The Normal Distribution (7)</h3>
+<section id="adding-in-more-standard-deviations" class="level3">
+<h3 data-anchor-id="adding-in-more-standard-deviations">Adding in more standard deviations</h3>
 <p><br><br></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2639,9 +2638,6 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="the-normal-distribution-8" class="level3">
-<h3 data-anchor-id="the-normal-distribution-8">The Normal Distribution (8)</h3>
 <p><br><br></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2653,8 +2649,9 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="the-normal-distribution-9" class="level3">
-<h3 data-anchor-id="the-normal-distribution-9">The Normal Distribution (9)</h3>
+</section>
+<section id="z-scores" class="level2">
+<h2 data-anchor-id="z-scores">Z-scores</h2>
 <p><br><br></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2665,10 +2662,6 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="z-scores" class="level2">
-<h2 data-anchor-id="z-scores">Z-scores</h2>
 <p><span class="math display"> \large z = \frac{(x - \bar{x})}{sd}</span></p>
 <ul>
 <li>Standard score, “invariant” to raw scale</li>
@@ -2727,8 +2720,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="summarising-skewed-data-3" class="level2">
-<h2 data-anchor-id="summarising-skewed-data-3">Summarising Skewed Data (3)</h2>
+<section id="summarising-skewed-data-principles" class="level2">
+<h2 data-anchor-id="summarising-skewed-data-principles">Summarising Skewed Data principles</h2>
 <ul>
 <li><p>Use median (50th percentile) for mid point</p></li>
 <li><p>25th and 75th percentiles commonly used</p></li>

@@ -146,7 +146,7 @@ May chose to only count the events, e.g. 'deaths' not 'survives'
 
 ::::
 
-# Summarising Data
+# Summarising Numeric Data
 <br><br>
 ___“Dear BI team, I would like age of all patients admitted as an emergency to general medicine in December?”___
 
@@ -344,7 +344,7 @@ ggplot(as.data.frame(ages),
 
 
 
-## Distributions
+### Summary figures
 
 We commonly want some measure of the Central point, and description of ‘weight’ of data
 
@@ -355,11 +355,12 @@ We commonly want some measure of the Central point, and description of ‘weight
 
 <br>
 
-### Theoretical ‘Normal’ distribution:###
+## The ‘Normal’ or 'Gaussian' distribution:
 
 + Equally distributed with most common values in the centre.
++ 'Bell-curve'
 + Mean, median and mode are identical
-+ Principles apply more widely
++ Principles apply more widely to lots of areas of statistics
 
 
 
@@ -431,7 +432,7 @@ p
 
 
 
-### The Normal Distribution (7)
+### Adding in more standard deviations
 <br><br>
 
 ```{r Norm7}
@@ -452,9 +453,6 @@ p
 ```
 
 
-
-
-### The Normal Distribution (8)
 <br><br>
 ```{r Norm8}
 
@@ -465,7 +463,7 @@ p + scale_x_continuous(breaks= c(50,200, 350,500,650,800,950) , minor_breaks = s
 
 
 
-### The Normal Distribution (9)
+## Z-scores
 
 <br><br>
 ```{r Norm9}
@@ -480,7 +478,7 @@ p + scale_x_continuous(breaks= c(50,200, 350,500,650,800,950) , minor_breaks = s
 
 
 
-## Z-scores
+
 
 $$ \large z = \frac{(x - \bar{x})}{sd}$$
 
@@ -595,7 +593,7 @@ s_qtl
 ```
 
 
-## Summarising Skewed Data (3)
+## Summarising Skewed Data principles
 
 - Use median (50th percentile) for mid point
 
