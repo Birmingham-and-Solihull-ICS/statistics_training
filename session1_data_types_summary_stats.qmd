@@ -18,8 +18,8 @@ crossref:
 ```{r}
 #| label: load-libraries
 #| warning: false
+#| include: false
 #| output: false
-#| echo: false
 
 
 # Load the required library
@@ -36,7 +36,9 @@ theme_set(
 ```
 
 # Introduction 
-## Data 
+
+## "Data"
+
 
 ::: {.grid}
 
@@ -49,16 +51,16 @@ theme_set(
 + When use data, we need to bring some order to it
 
 + We will consider structured data 
-
 :::
 
 :::{.g-col-6}
-<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/256px-DIKW_Pyramid.svg.png?20220726215947"></a>
+
+<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/256px-DIKW_Pyramid.svg.png"></a>
 :::
 
 :::
 
-
+__We often say data, but don't away mean data__
 
 ## Data types
 
@@ -137,7 +139,7 @@ May chose to only count the events, e.g. 'deaths' not 'survives'
 
 # Summarising Data
 <br><br>
-___“Dear informatics, I would like age of all patients admitted as an emergency to general medicine in December?”___
+___“Dear BI team, I would like age of all patients admitted as an emergency to general medicine in December?”___
 
 <br><br>
 
@@ -154,7 +156,7 @@ ages
 
 
 
-## How would you answer that question?
+#### How would you answer that question?
 
 What is the question really asking?  It's quite unlikely that sending a list of numbers really answerers the question in a useful way.  They requester may have various different questions, but they probably want some idea of the range, but also how the people are distributed across different ages.
 
@@ -175,7 +177,7 @@ What is the question really asking?  It's quite unlikely that sending a list of 
 
 
 
-## Scatter plots  
+### Scatter plots  
 
 ::: {.grid}
 
@@ -199,7 +201,7 @@ plot(ages)
 
 :::
 
-## Stem & Leaf Plots
+### Stem & Leaf Plots
 
 ::: {.grid}
 
@@ -226,11 +228,7 @@ stem(ages, scale = 0.5)
 :::
 :::
 
-## Histograms and Bar Charts
-
-::: {.grid}
-
-:::{.g-col-6}
+### Histograms and Bar Charts
 
 - Plot of binned counts
 
@@ -240,9 +238,9 @@ stem(ages, scale = 0.5)
 
 - Bar charts are related, but do not share the ‘binning’ idea. Can be used with categorical
 
-:::
+::: panel-tabset
 
-:::{.g-col-6}
+#### Equal bins
 
 ```{r hist1}
 ggplot(as.data.frame(ages), aes(x = ages)) +
@@ -252,12 +250,7 @@ ggplot(as.data.frame(ages), aes(x = ages)) +
 
 ```
 
-:::
-:::
-
-
-### Histograms and Bar Charts (2) 
-
+#### Unequal bins
 
 ```{r hist2}
 library(gridExtra)
@@ -265,20 +258,23 @@ grid.arrange(
 
   ggplot(as.data.frame(ages), aes(x = ages)) +
   geom_histogram(col = bsol_theme_cols(3), fill = bsol_theme_cols(3)
-                 , alpha=0.5, binwidth = 2) +
-  labs(title = 'Histogram of Ages, two-year bins')
+                 , alpha = 0.5, binwidth = 2) +
+  labs(title = 'Histogram of Ages, two-year bins') +
+  theme_bsol()
 ,
 ggplot(as.data.frame(ages), aes(x = ages)) +
-  geom_histogram(aes(y =..density..), col = bsol_theme_cols(3)
+  geom_histogram(aes(y = ..density..), col = bsol_theme_cols(3)
                  , fill = bsol_theme_cols(3), alpha = 0.5
                  , breaks = c(50, 5,60,65,70,75,80,95)) +
-  labs(title='Histogram of Ages, variable bins')
+  labs(title = 'Histogram of Ages, variable bins') +
+  theme_bsol()
 , ncol = 2)
 
 ```
 
+:::
 
-## Kernel Density
+### Kernel Density
 
 ::: {.grid}
 
@@ -306,8 +302,367 @@ ggplot(as.data.frame(ages), aes(x = ages)) +
 :::
 
 
+## Box Plots
+
+::: grid
+
+:::{.g-col-6}
+
+__Box range is (“hinges”):__
+
++ 25th percentile
++ 75th percentile
++ Line is the median (50th percentile)
++ Whiskers extend hinge ± 1.5 * IQR
++ Outliers (further points) are represented
++ Terms will be explained in the following slides
+
+:::
+
+:::{.g-col-6}
+
+```{r box}
+ggplot(as.data.frame(ages), 
+       aes(y = ages, x = "ages", group = "ages")) +
+  geom_boxplot(fill = bsol_theme_cols(5)) +
+  labs(title = 'Box Plot of Ages') +
+  theme_bsol()
+
+```
+:::
+:::
 
 
+
+## Distributions
+
+We commonly want some measure of the Central point, and description of ‘weight’ of data
+
++ <span style="color:DodgerBlue;"> “Mean” </span> is average of data, calculated centre \bar(x)
++ <span style="color:DodgerBlue;"> “Median” </span> is middle value in rank order
++ <span style="color:DodgerBlue;"> “Mode” </span> is the most common value
+
+
+<br>
+
+### Theoretical ‘Normal’ distribution:###
+
++ Equally distributed with most common values in the centre.
++ Mean, median and mode are identical
++ Principles apply more widely
+
+
+
+
+### The Normal Distribution (1)
+<br><br>
+```{r Norm1}
+set.seed(3000)
+
+norm.dist<- data.frame(
+  value<-seq(1,1000,1),
+  densities=dnorm(value, 500,150)
+  
+)
+
+#plot density from table.  Using GGplot, as I can define a plot object 'p' in this case, and keep adding layers.
+p<-ggplot(norm.dist, aes(x=value, y=densities))+
+  geom_line(size=1.2)+
+  scale_x_continuous(breaks= seq(0,1000,100) , minor_breaks = seq(0,1000,50))+
+  scale_y_continuous(breaks= seq(0,0.0035, 0.001) , minor_breaks = seq(0,0.0035, 0.0005), limits=c(0, 0.003))
+
+p
+
+```
+
+
+### The Normal Distribution (2)
+$$ {\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i   = \frac{sum(x_i)}{count(x_i)} }$$
+```{r Norm2}
+
+
+# add mean line and label
+p <- p + geom_vline(aes(xintercept = 500), col = "red", linetype = 2, size = 1.2, alpha = 0.5) +
+  geom_text(aes(x = 500, y = 0.0028, label = "mean"), col = "red", alpha = 0.5)
+
+p
+
+```
+
+
+### The Normal Distribution (3)
+$$ sd = \sqrt{ \frac{\sum_{i=1}^n x_i \left(x_i - \bar{x}^2 \right)}{n-1}}  =   sqrt\left(\frac{sum((x_i-\bar{x})^2)}{n-1}\right)$$
+```{r Norm3}
+
+# add 1sd lines
+p <- p + geom_vline(aes(xintercept = 350), col = "goldenrod", linetype = 2, size = 1.2, alpha = 0.7) +
+  geom_vline(aes(xintercept = 650), col = "goldenrod", linetype = 2, size = 1.2, alpha = 0.7) +
+  geom_text(aes(x = 350, y = 0.0028, label = "mean-sd"), col = "goldenrod", alpha = 0.5) +
+  geom_text(aes(x = 650, y = 0.0028, label = "mean+sd"), col = "goldenrod", alpha = 0.5) +
+  theme()
+
+p
+
+```
+
+
+### The Normal Distribution (4)
+<br><br>
+  
+```{r Norm4}
+
+# add 1sd lines
+p <- p + geom_segment(aes(x = 350, xend = 650, y = 0.002, yend = 0.002), size = 1,  
+                   arrow = arrow(ends = "both", type = "closed", length = unit(0.25, "cm")), col = "dodgerblue2") +
+  geom_text(aes(x = 500, y = 0.00206, label = "68.27%"),  size = 4, col = "dodgerblue2")
+p
+```
+
+
+### The Normal Distribution (5)
+<br><br>
+```{r Norm5}
+
+#add two sd lines 
+p <- p + geom_vline(aes(xintercept = 200), col = "palegreen4", linetype = 2, size = 1.2, alpha = 0.7) +
+  geom_vline(aes(xintercept = 800), col = "palegreen4", linetype = 2, size = 1.2, alpha = 0.7)+
+  geom_text(aes(x = 200, y = 0.0028, label = "mean-2*sd"), col = "palegreen4", alpha = 0.5)+
+  geom_text(aes(x = 800, y = 0.0028, label = "mean+2*sd"), col = "palegreen4", alpha = 0.5)
+
+p
+
+```
+
+
+
+
+
+### The Normal Distribution (6)
+<br><br>
+
+```{r Norm6}
+
+# add 2 sd label
+p <- p + geom_segment(aes(x = 200, xend = 800, y = 0.00125, yend = 0.00125),
+  size = 1,
+  arrow = arrow(ends = "both", type = "closed", length = unit(0.25, "cm")), col = "dodgerblue2"
+) +
+  geom_text(aes(x = 500, y = 0.00131, label = "95.45%"), size = 4, col = "dodgerblue2")
+
+p
+```
+
+
+
+### The Normal Distribution (7)
+<br><br>
+```{r Norm7}
+# add 3 sd lines
+p <- p + geom_vline(aes(xintercept = 50), col = "chocolate4", linetype = 2, size = 1.2, alpha = 0.7) +
+  geom_vline(aes(xintercept = 950), col = "chocolate4", linetype = 2, size = 1.2, alpha = 0.7) +
+  geom_text(aes(x = 50, y = 0.0028, label = "mean-3*sd"), col = "chocolate4", alpha = 0.5) +
+  geom_text(aes(x = 950, y = 0.0028, label = "mean+3*sd"), col = "chocolate4", alpha = 0.5)
+
+# add 3 sd label
+p <- p + geom_segment(aes(x = 50, xend = 950, y = 0.0005, yend = 0.0005),
+  size = 1,
+  arrow = arrow(ends = "both", type = "closed", length = unit(0.25, "cm")), col = "dodgerblue2"
+) +
+  geom_text(aes(x = 500, y = 0.00056, label = "99.73%"), size = 4, col = "dodgerblue2")
+
+p
+```
+
+
+
+
+### The Normal Distribution (8)
+<br><br>
+```{r Norm8}
+
+#change to sd scale
+p + scale_x_continuous(breaks= c(50,200, 350,500,650,800,950) , minor_breaks = seq(0,1000,50))
+
+```
+
+
+
+### The Normal Distribution (9)
+
+<br><br>
+```{r Norm9}
+
+#Z-score
+p + scale_x_continuous(breaks= c(50,200, 350,500,650,800,950) , minor_breaks = seq(0,1000,50),
+                       labels = c(-3, -2, -1, 0, 1, 2, 3))
+
+```
+
+
+
+
+
+## Z-scores
+
+$$ \large z = \frac{(x - \bar{x})}{sd}$$
+
++ Standard score, “invariant” to raw scale
++ Changes scale but not distribution
+<br><br>
++ Each value is divided the standard-deviation, so:
++ Mean = 0
++ 1 = Mean + 1sd
++ -1= Mean – 1sd
+
+
+
+<br><br>
+  
+  __Z-scores a common way to compare different indicators, on different natural scales__
+
+
+
+## Skewed Distributions
+
+```{r skew1}
+
+library(sn)
+skew <- data.frame(
+  index = seq(10000),
+  l = round(as.numeric(rsn(10000, xi = 0, omega = 100, alpha = 200)), 0)
+)
+
+# didn't know how to do skewed distribution easily, so fudged it with this.  Using skewed normal distribution then correction for <0,
+# by adding the minimum value (made positive) to all.  Then generate right skew version by reversing (max - value)
+skew$l <- skew$l + abs(min(skew$l))
+skew$r <- max(skew$l) - skew$l
+
+# rearrange data into long "tidy" format for plotting. This uses the 'tidyr' function form the 'tidyverse.'
+# Tidyverse is a modern set of R functions for doing most common things like data manipluation, plotting etc. Easier than base R.
+# This function will give and index column, a key column that will contain l, or r, and a value.
+library(tidyr)
+skew_t <- gather(skew, key, value, -index)
+skew_t$key <- as.factor(skew_t$key)
+levels(skew_t$key) <- c("Left skew", "Right skew")
+
+
+# ggplot, using 'facet' to split into two plots according to 'key'
+s <- ggplot(skew_t, aes(x = value, col = key, fill = key)) +
+  geom_histogram(alpha = 0.5) +
+  facet_grid(~key)
+
+s
+
+```
+
+
+## Summarising Skewed Data
+
+```{r skew2}
+### Add summary statistics.  R doesn't have a 'mode' function so here's a used defined one:
+getmode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+
+# Add pre-calculated lines for mean, median and mode.
+s <- s + geom_vline(aes(xintercept = value, col = "mean"), size = 1, linetype = 2, data = data.frame(key = rbind("Left skew", "Right skew"), value = rbind(l = mean(skew$l), r = mean(skew$r)))) +
+  geom_vline(aes(xintercept = value, col = "median"), size = 1, linetype = 2, data = data.frame(key = rbind("Left skew", "Right skew"), value = rbind(l = median(skew$l), r = median(skew$r)))) +
+  geom_vline(aes(xintercept = value, col = "mode"), size = 1, linetype = 2, data = data.frame(key = rbind("Left skew", "Right skew"), value = rbind(l = getmode(skew$l), r = getmode(skew$r)))) +
+  scale_colour_manual(values = c("mean" = "2", "median" = "3", "mode" = "4"), limits = c("mean", "median", "mode")) +
+  guides(fill = FALSE)
+
+s
+```
+
+
+## Summarising Skewed Data (2)
+
+```{r skew3}
+qtiles<-
+  skew_t %>% 
+  filter(key=="Left skew") %>% 
+  summarise(p25=quantile(value, probs=0.25),
+            median=quantile(value, probs=0.5),
+            p75=quantile(value, probs=0.75)) %>% 
+  gather()
+
+#ggplot, using 'facet' to split into two plots according to 'key'
+s_qtl<-ggplot(skew_t[skew_t$key=="Left skew",], aes(x=value))+
+  geom_histogram(alpha=0.5, bins=50,  colour="#F8766D",  fill="#F8766D")+
+  geom_vline(aes(xintercept=value, group=key, col=key), data=qtiles, size =1)
+
+s_qtl  
+```
+
+
+## Summarising Skewed Data (3)
+
+- Use median (50th percentile) for mid point
+
+- 25th and 75th percentiles commonly used
+
+- 75th - 25th ntile referred to as ‘Inter-quartile range’ (IQR).
+
+- Can also list extremes of distribution.
+
+- Mean & SD not a good representation
+
+
+
+
+## How do we calculate a percentile?
+
+::: {.grid}
+
+:::{.g-col-6}
+
+- Take some values: e.g.  the heights in earlier slides
+
+- Order them from low to high
+
+- Add an index
+
+:::
+
+:::{.g-col-6}
+<img src = "./assets/img/percentiles.png" height="500" width="300" class="center">
+:::
+:::
+
+  
+  
+## How do we calculate a percentile? (2)
+  
+  
+::: {.grid}
+
+:::{.g-col-6}
+
+<p>Find the percentile you want, using the index</p>
+<ul><li>e.g. 10% of 205 age values</li>
+<li>0.1 * 205 = 20.5th index value</li></ul>
+
+
+<br>
+<p>If index value is a whole number, use it directly</p>
+<br>
+<p>If index value is between numbers, various rules, including:</p>
+<ul><li>Round up/down</li>
+<li>Average</li>
+<li>Weighted average</li></ul>
+
+  
+  ___10th percentile = 55___
+
+::: 
+  
+:::{.g-col-6}
+<img src = "./assets/img/percentiles2.png" height="500" width="400" class="center">
+:::
+:::
+  
 
 ```{=html}
 
