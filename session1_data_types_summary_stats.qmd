@@ -383,7 +383,7 @@ There are various measures of spread:
 
 + The standard deviation (sd or $\sigma$): the average distance of a point from the mean.
 
-$$ sd = \sqrt{ \frac{\sum_{i=1}^n \left(x_i - \bar{x}^2 \right)}{n-1}}$$
+$$ sd = \sqrt{ \frac{\sum_{i=1}^n \left(x_i - \bar{x} \right)^2}{n-1}}$$
 or, in easier terms:
 
 $$sqrt\left(\frac{sum((x_i-\bar{x})^2)}{count(x)-1}\right)$$
