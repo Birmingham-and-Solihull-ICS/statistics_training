@@ -2273,11 +2273,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#the-normal-or-gaussian-distribution" id="toc-the-normal-or-gaussian-distribution" class="nav-link" data-scroll-target="#the-normal-or-gaussian-distribution">The ‘Normal’ or ‘Gaussian’ distribution:</a>
   <ul class="collapse">
-  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution">The Normal Distribution</a></li>
+  <li><a href="#visualising-the-normal-distribution" id="toc-visualising-the-normal-distribution" class="nav-link" data-scroll-target="#visualising-the-normal-distribution">Visualising the Normal Distribution</a></li>
   <li><a href="#mean-is-in-the-centre-of-the-curve" id="toc-mean-is-in-the-centre-of-the-curve" class="nav-link" data-scroll-target="#mean-is-in-the-centre-of-the-curve">Mean is in the centre of the curve</a></li>
   <li><a href="#mean-standard-deviation" id="toc-mean-standard-deviation" class="nav-link" data-scroll-target="#mean-standard-deviation">Mean + standard deviation</a></li>
   <li><a href="#how-much-of-the-distribution-is-here" id="toc-how-much-of-the-distribution-is-here" class="nav-link" data-scroll-target="#how-much-of-the-distribution-is-here">How much of the distribution is here?</a></li>
   <li><a href="#adding-in-more-standard-deviations" id="toc-adding-in-more-standard-deviations" class="nav-link" data-scroll-target="#adding-in-more-standard-deviations">Adding in more standard deviations</a></li>
+  <li><a href="#change-the-x-scale-to-values." id="toc-change-the-x-scale-to-values." class="nav-link" data-scroll-target="#change-the-x-scale-to-values.">Change the x scale to values.</a></li>
   <li><a href="#z-scores" id="toc-z-scores" class="nav-link" data-scroll-target="#z-scores">Z-scores</a></li>
   </ul></li>
   <li><a href="#skewed-distributions" id="toc-skewed-distributions" class="nav-link" data-scroll-target="#skewed-distributions">Skewed Distributions</a>
@@ -2406,8 +2407,10 @@ window.Quarto = {
 [201] 75 57 68 91 91</code></pre>
 </div>
 </div>
+<p><br><br></p>
 <section id="how-would-you-answer-that-question" class="level4">
 <h4 data-anchor-id="how-would-you-answer-that-question">How would you answer that question?</h4>
+<p><br><br></p>
 <p>What is the question really asking? It’s quite unlikely that sending a list of numbers really answers the question. They requester may have various different questions, but they probably want some idea of the range of ages, but also how the people are distributed across different ages.</p>
 <ul>
 <li><p>How might we show this in a better way?</p></li>
@@ -2613,9 +2616,8 @@ window.Quarto = {
 <li>Mean, median and mode are identical</li>
 <li>Principles apply more widely to lots of areas of statistics</li>
 </ul>
-<section id="the-normal-distribution" class="level3">
-<h3 data-anchor-id="the-normal-distribution">The Normal Distribution</h3>
-<p><br><br></p>
+<section id="visualising-the-normal-distribution" class="level3">
+<h3 data-anchor-id="visualising-the-normal-distribution">Visualising the Normal Distribution</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -2628,7 +2630,6 @@ window.Quarto = {
 </section>
 <section id="mean-is-in-the-centre-of-the-curve" class="level3">
 <h3 data-anchor-id="mean-is-in-the-centre-of-the-curve">Mean is in the centre of the curve</h3>
-<p><span class="math display"> {\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i   = \frac{sum(x_i)}{count(x_i)} }</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -2653,7 +2654,6 @@ window.Quarto = {
 </section>
 <section id="how-much-of-the-distribution-is-here" class="level3">
 <h3 data-anchor-id="how-much-of-the-distribution-is-here">How much of the distribution is here?</h3>
-<p><br><br></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -2666,7 +2666,6 @@ window.Quarto = {
 </section>
 <section id="adding-in-more-standard-deviations" class="level3">
 <h3 data-anchor-id="adding-in-more-standard-deviations">Adding in more standard deviations</h3>
-<p><br><br></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -2676,7 +2675,10 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><br><br></p>
+</section>
+<section id="change-the-x-scale-to-values." class="level3">
+<h3 data-anchor-id="change-the-x-scale-to-values.">Change the x scale to values.</h3>
+<p>We modelled a distribution with a mean of 500, and a standar deviation of 150. <br></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -2689,7 +2691,19 @@ window.Quarto = {
 </section>
 <section id="z-scores" class="level3">
 <h3 data-anchor-id="z-scores">Z-scores</h3>
-<p><br><br></p>
+<ul>
+<li>Standard score, “invariant” to raw scale</li>
+<li>Changes scale but not distribution <br><br></li>
+<li>Each value is divided the standard-deviation, so:
+<ul>
+<li>Mean = 0</li>
+<li>1 = Mean + 1sd</li>
+<li>-1 = Mean – 1sd</li>
+</ul></li>
+<li>We are now talking in units of standard deviation</li>
+</ul>
+<p><span class="math display"> \large z = \frac{(x - \bar{x})}{sd}</span></p>
+<p><br></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -2699,16 +2713,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><span class="math display"> \large z = \frac{(x - \bar{x})}{sd}</span></p>
-<ul>
-<li>Standard score, “invariant” to raw scale</li>
-<li>Changes scale but not distribution <br><br></li>
-<li>Each value is divided the standard-deviation, so:</li>
-<li>Mean = 0</li>
-<li>1 = Mean + 1sd</li>
-<li>-1= Mean – 1sd</li>
-</ul>
-<p><br><br></p>
+<p><br></p>
 <p><strong>Z-scores a common way to compare different indicators, on different natural scales</strong></p>
 </section>
 </section>

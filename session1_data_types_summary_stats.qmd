@@ -164,9 +164,11 @@ ages <- c(75,81,59,70,64,67,66,54,68,72,80,66,70,76,75,52,59,52,86,56,51,59,72,6
 ages
 ```
 
-
+<br><br>
 
 #### How would you answer that question?
+
+<br><br>
 
 What is the question really asking?  It's quite unlikely that sending a list of numbers really answers the question.  They requester may have various different questions, but they probably want some idea of the range of ages, but also how the people are distributed across different ages.
 
@@ -398,8 +400,7 @@ $$sqrt\left(\frac{sum((x_i-\bar{x})^2)}{count(x)-1}\right)$$
 
 
 
-### The Normal Distribution
-<br><br>
+### Visualising the Normal Distribution
 ```{r Norm1}
 set.seed(3000)
 
@@ -422,7 +423,6 @@ p
 
 
 ### Mean is in the centre of the curve
-$$ {\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i   = \frac{sum(x_i)}{count(x_i)} }$$
 ```{r Norm2}
 
 
@@ -436,7 +436,6 @@ p
 
 
 ### Mean + standard deviation
-
 ```{r Norm3}
 
 # add 1sd lines
@@ -452,8 +451,6 @@ p
 
 
 ### How much of the distribution is here?
-<br><br>
-  
 ```{r Norm4}
 
 # add 1sd lines
@@ -466,8 +463,6 @@ p
 
 
 ### Adding in more standard deviations
-<br><br>
-
 ```{r Norm7}
 # add 3 sd lines
 p <- p + geom_vline(aes(xintercept = 50), col = "chocolate4", linetype = 2, size = 1.2, alpha = 0.7) +
@@ -486,7 +481,9 @@ p
 ```
 
 
-<br><br>
+### Change the x scale to values.
+We modelled a distribution with a mean of 500, and a standar deviation of 150.
+<br>
 ```{r Norm8}
 
 #change to sd scale
@@ -498,7 +495,19 @@ p + scale_x_continuous(breaks= c(50,200, 350,500,650,800,950) , minor_breaks = s
 
 ### Z-scores
 
++ Standard score, “invariant” to raw scale
++ Changes scale but not distribution
 <br><br>
++ Each value is divided the standard-deviation, so:
+  + Mean = 0
+  + 1 = Mean + 1sd
+  + -1 = Mean – 1sd
++ We are now talking in units of standard deviation
+
+
+$$ \large z = \frac{(x - \bar{x})}{sd}$$
+
+<br>
 ```{r Norm9}
 
 #Z-score
@@ -508,24 +517,7 @@ p + scale_x_continuous(breaks= c(50,200, 350,500,650,800,950) , minor_breaks = s
 ```
 
 
-
-
-
-
-
-$$ \large z = \frac{(x - \bar{x})}{sd}$$
-
-+ Standard score, “invariant” to raw scale
-+ Changes scale but not distribution
-<br><br>
-+ Each value is divided the standard-deviation, so:
-+ Mean = 0
-+ 1 = Mean + 1sd
-+ -1= Mean – 1sd
-
-
-
-<br><br>
+<br>
   
   __Z-scores a common way to compare different indicators, on different natural scales__
 
