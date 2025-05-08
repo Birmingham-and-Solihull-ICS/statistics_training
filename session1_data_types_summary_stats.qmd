@@ -64,7 +64,8 @@ theme_set(
 
 :::{.g-col-6}
 
-<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/256px-DIKW_Pyramid.svg.png"></a>
+<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/616px-DIKW_Pyramid.svg.png"></a>
+
 :::
 
 :::
@@ -350,15 +351,15 @@ ggplot(as.data.frame(ages),
 
 ### Quick notation definition
 
-+ $x$ = is the variable of interest.  If we have more than one, they might by $y$, $z$ etc.
++ $x$:   is the variable of interest.  If we have more than one, they might by $y$, $z$ etc.
 
-+ $n$ = is the number of observations, or the count of x
++ $n$:   is the number of observations, or the count of x
 
-+ $i$ is usually use to denote an individual value, rather than all values.  E.g. $x_i$ usually mean 'each value of x', rather than all values of $x$.  It is also the index, e.g. $i=3$ means the value at position 3
++ $i$:    is usually use to denote an individual value, rather than all values.  E.g. $x_i$ usually mean 'each value of x', rather than all values of $x$.  It is also the index, e.g. $i=3$ means the value at position 3
 
-+ $\bar{}$ is usually used to signify the mean.  E.g. $\bar{y}$ is the mean of $y$.
++ $\bar{}$:   is usually used to signify the mean.  E.g. $\bar{y}$ is the mean of $y$.
 
-+ $\Sigma$ is a 'sum' operator.  Usually given with a range at the top and a starting value at the bottom.  e.g. $\sum_{i=1}^n$ reads as 'sum n values, starting at 1 index.
++ $\Sigma$:   is a 'sum' operator.  Usually given with a range at the top and a starting value at the bottom.  e.g. $\sum_{i=1}^n$ reads as 'sum n values, starting at 1 index.
 
 
 ### Center of the data
@@ -370,7 +371,15 @@ $$\bar{x} = \frac{\sum_{i=1}^n x_i}{n}$$
 
 + <span style="color:DodgerBlue;"> “Mode” </span> is the most common value
 
-### Spread 
+### Spread
+
+There are various measures of spread:
+
++ Extremes of the distributions (highest / lowest)
+
++ Quantiles (often percentiles) - the group of observations within certain ranges, e.g. middle 50%
+
++ The standard deviation (sd or $\sigma$): the average distance of a point from the mean.
 
 $$ sd = \sqrt{ \frac{\sum_{i=1}^n \left(x_i - \bar{x}^2 \right)}{n-1}}$$
 or, in easier terms:
