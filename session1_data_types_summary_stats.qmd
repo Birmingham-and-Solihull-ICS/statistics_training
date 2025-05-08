@@ -64,7 +64,7 @@ theme_set(
 
 :::{.g-col-6}
 
-<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/616px-DIKW_Pyramid.svg.png"></a>
+<a title="Longlivetheux, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DIKW_Pyramid.svg"><img width="256" alt="The pyramid of knowledge with a base of data, the next layer built of information, then knowledge and finally wisdom at the peak." src="./assets/img/DIKW_Pyramid.png"></a>
 
 :::
 
@@ -353,17 +353,17 @@ ggplot(as.data.frame(ages),
 
 ### Quick notation definition
 
-+ $x$:   is the variable of interest.  If we have more than one, they might by $y$, $z$ etc.
++ $x$ :   is the variable of interest.  If we have more than one, they might by $y$, $z$ etc.
 
-+ $n$:   is the number of observations, or the count of x
++ $n$ :   is the number of observations, or the count of x
 
-+ $i$:    is usually use to denote an individual value, rather than all values.  E.g. $x_i$ usually mean 'each value of x', rather than all values of $x$.  It is also the index, e.g. $i=3$ means the value at position 3
++ $i$ :    is usually use to denote an individual value, rather than all values.  E.g. $x_i$ usually mean 'each value of x', rather than all values of $x$.  It is also the index, e.g. $i=3$ means the value at position 3
 
-+ $\bar{}$:   is usually used to signify the mean.  E.g. $\bar{y}$ is the mean of $y$.
++ $\bar{}$ :   is usually used to signify the mean.  E.g. $\bar{y}$ is the mean of $y$.
 
-+ $\Sigma$:   is a 'sum' operator.  Usually given with a range at the top and a starting value at the bottom.  e.g. $\sum_{i=1}^n$ reads as 'sum n values, starting at 1 index.
++ $\Sigma$ :   is a 'sum' operator.  Usually given with a range at the top and a starting value at the bottom.  e.g. $\sum_{i=1}^n$ reads as 'sum n values, starting at 1 index.
 
-
+<br>
 ### Center of the data
 We commonly want some measure of the Central point, and description of ‘weight’ of data
 
@@ -373,6 +373,7 @@ $$\bar{x} = \frac{\sum_{i=1}^n x_i}{n}$$
 
 + <span style="color:DodgerBlue;"> “Mode” </span> is the most common value
 
+<br>
 ### Spread
 
 There are various measures of spread:
@@ -384,9 +385,64 @@ There are various measures of spread:
 + The standard deviation (sd or $\sigma$): the average distance of a point from the mean.
 
 $$ sd = \sqrt{ \frac{\sum_{i=1}^n \left(x_i - \bar{x} \right)^2}{n-1}}$$
-or, in easier terms:
+or, in easier Excel terms:
 
 $$sqrt\left(\frac{sum((x_i-\bar{x})^2)}{count(x)-1}\right)$$
+
+<br>
+
+
+
+### How do we calculate a percentile?
+
+::: {.grid}
+
+:::{.g-col-6}
+
+- Take some values: e.g.  the heights in earlier slides
+
+- Order them from low to high
+
+- Add an index
+
+:::
+
+:::{.g-col-6}
+<img src = "./assets/img/percentiles.png" height="500" width="300" class="center">
+:::
+:::
+
+  
+  
+### How do we calculate a percentile? (2)
+  
+  
+::: {.grid}
+
+:::{.g-col-6}
+
+<p>Find the percentile you want, using the index</p>
+<ul><li>e.g. 10% of 205 age values</li>
+<li>0.1 * 205 = 20.5th index value</li></ul>
+
+
+<br>
+<p>If index value is a whole number, use it directly</p>
+<br>
+<p>If index value is between numbers, various rules, including:</p>
+<ul><li>Round up/down</li>
+<li>Average</li>
+<li>Weighted average</li></ul>
+
+  
+  ___10th percentile = 55___
+
+::: 
+  
+:::{.g-col-6}
+<img src = "./assets/img/percentiles2.png" height="500" width="400" class="center">
+:::
+:::
 
 <br>
 
@@ -546,23 +602,24 @@ skew <- data.frame(
 
 # didn't know how to do skewed distribution easily, so fudged it with this.  Using skewed normal distribution then correction for <0,
 # by adding the minimum value (made positive) to all.  Then generate right skew version by reversing (max - value)
-skew$l <- skew$l + abs(min(skew$l))
-skew$r <- max(skew$l) - skew$l
+skew$right <- skew$l + abs(min(skew$l))
+skew$left <- max(skew$l) - skew$l
+skew$l <- NULL
 
 # rearrange data into long "tidy" format for plotting. This uses the 'tidyr' function form the 'tidyverse.'
 # Tidyverse is a modern set of R functions for doing most common things like data manipluation, plotting etc. Easier than base R.
 # This function will give and index column, a key column that will contain l, or r, and a value.
 library(tidyr)
 skew_t <- gather(skew, key, value, -index)
-skew_t$key <- as.factor(skew_t$key)
-levels(skew_t$key) <- c("Left skew", "Right skew")
+skew_t$key <- factor(skew_t$key, levels = c("right","left"), labels = c("Right skew", "Left skew"))
+
 
 
 # ggplot, using 'facet' to split into two plots according to 'key'
 s <- 
   ggplot(skew_t, aes(x = value, fill = key)) +
   geom_histogram(alpha = 0.5, col = "grey", show.legend = FALSE) +
-  scale_fill_viridis_d(aesthetics = c("fill")) +
+  scale_fill_bsol(aesthetics = c("fill")) +
   facet_grid(~key)
 
 s
@@ -582,15 +639,17 @@ getmode <- function(x) {
 }
 
 lines_dt <-
-  data.frame(measure = c("mean", "median", "model", "mean", "median", "model"),
-             value = c(mean(skew$l), median(skew$l), getmode(skew$l), mean(skew$r), median(skew$r), getmode(skew$r)),
+  data.frame(measure = c("mean", "median", "mode", "mean", "median", "mode"),
+             value = c(mean(skew$left), median(skew$left), getmode(skew$left)
+                       , mean(skew$right), median(skew$right), getmode(skew$right)),
              key = c("Left skew","Left skew","Left skew", "Right skew", "Right skew", "Right skew")
              )
 
 # Add pre-calculated lines for mean, median and mode.
 s <- 
   s + 
-  geom_vline(aes(xintercept = value, linetype = measure), col= "black", data = lines_dt) +
+  geom_vline(aes(xintercept = value, colour = measure), data = lines_dt) +
+  scale_colour_brewer(type = "qual", palette = "Set1") +
     guides(fill = FALSE) 
 
 s
@@ -633,59 +692,6 @@ s_qtl
 
 - Mean & SD not a good representation as the mean is affected by the extreme values and the standard deviation assumes symmetrical shape either side of mean.
 
-
-
-
-### How do we calculate a percentile?
-
-::: {.grid}
-
-:::{.g-col-6}
-
-- Take some values: e.g.  the heights in earlier slides
-
-- Order them from low to high
-
-- Add an index
-
-:::
-
-:::{.g-col-6}
-<img src = "./assets/img/percentiles.png" height="500" width="300" class="center">
-:::
-:::
-
-  
-  
-### How do we calculate a percentile? (2)
-  
-  
-::: {.grid}
-
-:::{.g-col-6}
-
-<p>Find the percentile you want, using the index</p>
-<ul><li>e.g. 10% of 205 age values</li>
-<li>0.1 * 205 = 20.5th index value</li></ul>
-
-
-<br>
-<p>If index value is a whole number, use it directly</p>
-<br>
-<p>If index value is between numbers, various rules, including:</p>
-<ul><li>Round up/down</li>
-<li>Average</li>
-<li>Weighted average</li></ul>
-
-  
-  ___10th percentile = 55___
-
-::: 
-  
-:::{.g-col-6}
-<img src = "./assets/img/percentiles2.png" height="500" width="400" class="center">
-:::
-:::
 
 
 # Summarising Binary or categorical 
