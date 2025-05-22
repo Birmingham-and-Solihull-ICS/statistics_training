@@ -1,4 +1,4 @@
-# Statistics training material
+# Statistics training material  <img src="https://www.birminghamsolihull.icb.nhs.uk/application/files/1316/5651/5354/logo_full_colour_main_lockup.svg" align="right" width="300px"/>
 
 
 ## Foundations
@@ -19,3 +19,5 @@
 + Simulation modelling
 + Machine learning prediction models
 
+
+Licence: [CC-BY-4.0-1](https://github.com/Birmingham-and-Solihull-ICS/statistics_training?tab=CC-BY-4.0-1-ov-file)
