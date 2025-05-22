@@ -1,6 +1,8 @@
 # Statistics training material  <img src="https://www.birminghamsolihull.icb.nhs.uk/application/files/1316/5651/5354/logo_full_colour_main_lockup.svg" align="right" width="300px"/>
 
 
+__Please click on the links below to access the relevant sections__
+
 ## Foundations
 
 + [Data types and summary statistics](session1_data_types_summary_stats.html)
