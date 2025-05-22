@@ -1,0 +1,85 @@
+---
+title: "Session 2: Probability, Odds and related things"
+date: "2025-05-22"
+author: Chris Mainey
+date-format: "D MMMM YYYY"
+format: bsol-html
+fig-align: 'center'
+fig-width: 7
+fig-height: 5 
+execute:
+  echo: false
+  cache: false             # Cache results
+  warning: false           # Do not include warnings in rendered output
+  error: false             # Do not include errors in the output
+  feeze: auto              # Re-compute previously generated computational output only in case their source file changes
+crossref:
+  fig-title: '**Figure**'
+  fig-labels: arabic
+---
+
+```{r}
+#| label: load-libraries
+#| warning: false
+#| include: false
+#| output: false
+
+
+# Load the required library
+
+library(ggplot2)
+library(plotly)
+library(tidyverse)
+library(scales)
+library(DT)
+library(BSOLTheme)
+
+theme_set(
+  theme_bsol() +
+    theme(axis.text = element_text(size = unit(20, "pt")),
+          axis.title = element_text(size = unit(20, "pt")),
+          text = element_text(size = unit(20, "pt"))
+          )
+)
+
+```
+
+# Introduction 
+
+## 2 x 2 tables
+
+We will use a standard sort of table from epidemiology/statistics for this.  The '2x2 table' is 2 rows * 2 columns, and allow us to compare outcomes (events, intervention, what happened etc.) in groups (exposure, cohort):
+
+| TRUE (+)     | False (-)   |
+| ------------ | --_-------- |
+| a | b |
+| c | d |
+
+
+# Probability
+
+## Types
+
+# Odds
+
+# Extending the 2x2 table
+
+## Relative risk
+
+# Absolute risk / absolute risk reduction
+
+## Odds ratios
+
+
+
+
+# Summary
+
+
+
+```{=html}
+
+<div class="footer-banner">
+  <img src="_extensions/Birmingham-and-Solihull-ICS/bsol/Logo/ML_logo.png" alt="ML Logo" class="footer-logo left-logo" />
+  <img src="_extensions/Birmingham-and-Solihull-ICS/bsol/Logo/ICB_logo.png" alt="ICB Logo" class="footer-logo right-logo" />
+</div>
