@@ -46,35 +46,248 @@ theme_set(
 
 # Introduction 
 
-## 2 x 2 tables
+This session discusses how we can use statistics to infer things from data, commonly known as ___statistical inference___. Statistical inference is built, however on ___probability theory___, so we will spend much of this session discussing that, thinking about what probability means, and some of the common representations of it as probability ratios, relative risk, and odds ratios.
+
+## Teminology 
+
+Some of the terminology might get a bit overwhelming here, but the main things to be aware of are:
+
+* Experiment / Trial:  The number of times something is conducted, e.g. a dice role or coin toss.
+* Outcome:  The possible result from an experiment / trial
+* Exposure:  Groups that are systematically different in of different units who's outcomes we might  
+
+
+* ___A-priori probability:___This is classical 'known' probability.  E.g. likelihood of a particular dice role, given 6 sides.
+* ___Empirical probability:___ Based solely on our observations, not fully 'known'
+
+
+## Notation
+
+We will use a bit of algebraic notation in this section... ___it's not as hard as it looks on first glance___.  
+
+### Algebraic notation
+
+We will use $P$ to mean the probability of something some event that we might name $s$, and this will look like $P(a)$
+
+
+### 2 x 2 tables
 
 We will use a standard sort of table from epidemiology/statistics for this.  The '2x2 table' is 2 rows * 2 columns, and allow us to compare outcomes (events, intervention, what happened etc.) in groups (exposure, cohort):
 
-| TRUE (+)     | False (-)   |
-| ------------ | --_-------- |
-| a | b |
-| c | d |
+:::: {.columns}
+::: {.column width="50%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| a | b |
+|E-| c | d |
+: {.striped .hover}
+
+::: {.column width="50%"}
+Something else
+
+:::
+::::
+
+
+```{r table1}
+table("a", "b", "c", "d")
+
+```
 
 
 # Probability
 
+Probability is a way of quantifying events, and how likely they are to happen.  This might be in a closed, or __a-priori__ system (like a dice role), or an open, or __empirical__, system (how likely is it that a patient dies in hospital).
+
+We usually describe this as the number of times an event is likely to occur, out of the number of possible events.
+
+$$P(A) =  \frac{\text{Number of outcomes making up event (A)}}{\text{Total number of outcomes}}$$
+
+If we consider flipping a fair coin:
+
+$$P(heads) = \frac{(1 * heads)}{(1* heads) + (1 * tails)} = \frac{1}{2} = 0.5 $$
+
+If we consider a fair dice (die) roll, what is the probability of any given number, e.g. 6:
+
+$$P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6} $$
+
+If we consider a red card in a deck of cards (no jokers):
+
+$$P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5 $$
+
+I we consider drawing a queen in a full deck of cards (no jokers):
+
+
+$$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077 $$
+
 ## Types
+
+Our simple examples so far have been easy to understand, as they have been single events in isolation.  We need to add a few more descriptions around situations to distinguish what is going on and how that affects us when there is more than one thing we are interested it. 
+
+### Exclusivity
+
+If we have more than one event, but being one prevents any other, this is known as 'exclusive'.  For example, a coin toss of heads is exclusive, and it cannot be tails at the same time.  If it is one, it is not the other.  This is the case for both heads and tails, so we can call it _mutually exclusive_
+
+For two mutually exclusive events: A & B
+
+$$P(A, B) = 0$$
+
+__i.e. There is 0 zero change of both events at the same time.  Being one prevents being the other.__
+
+
+### Exhaustivity
+
+If we have accounted for all possible outcomes, we can consider the options 'exhausted.'  E.g. with the coin toss, both options of heads and tails account for all the options, so we would consider that exhaustive and, as with exclusivity, it is also mutually exhaustive.
+
+For two mutually exhaustive events:
+
+£$$P(A) + P(B) = 1$$
+
+__i.e. one of them definitely happens__
+
+
+It is possible to be both mutually exhaustive and mutually exclusive, like our coin example.  Many real world applications are not, e.g. the probability of an individual being female and having brown hair are neither exclusive or exhaustive.
+
+
+### Independence / Conditionality
+
+When we are considering more than one event, we have to assess whether or not they are related.  There are two main ways in which they can be related:
+
+
+* If two events __do not__ have affect on each other, then they can be considered to be independent.  E.g. two coin tosses are perfectly isolated, and the previous toss does not affect it, nor does the subsequent coin toss. Both coin tosses
+
+* If one event has an effect on the subsequent outcomes, then they are considered condition.  E.g. probability of drawing drawing a red M&M from a bag with two blue and five red M&Ms left.
+
+Draw 1 = $P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71$
+
+You drew a red.
+
+Draw 2 = $P(red) = \frac{4 * red}{(4 * red) + (2 * blue)} = \frac{4}{6} = 0.6\dot{6}$
+
+
+__What would happen if you replaced the red M&M in the bag before the second draw?__
+
+__How would you describe this situation now?__
+
+
+We can update our notation to use the `|` which indicates conditional probability: $P(B|A)$
+So the probability of B, given that A has happened.
+
+
+This leads us to useful formula for the probability of A and B:
+
+$$P(\text{A and B})  = P(A) * P(B|A)$$
+Applied to our M&Ms, with Draw 1 and Draw 2, the probability of brawing two reds is:
+
+$$P(\text{Draw 2 | Draw 1}) = P(\text{Draw 1}) * P(\text{Draw 2 | Draw 1})) =   \frac{5}{7} * \frac{4}{6} = 0.48$$
+
+
+
+## Combining probabilities
+
+We often want to combine probabilities together to get different values, once we've decided how they are related.
+This can be done with regular maths, with care as to whether things are independent or conditional.  In all the examples below, the first event is A, and second is B.
+
+
+Both of these depend on whether it is mutually exclusive, and whether indecent.
+
+* Union:  The probability of either A __OR__ B:  $P(A\cup B) = P(A) + P(B) - P(A\cap B)$  
+* Intersection: The probability of A __AND__ B.  $P(A\cap B) = P(A) * P(B)$ for independent data, you commonly need to work out all possible outcomes, and potentially draw a tree diagram, for more complicated situations
+
+
+E.g.
+
+Probability of tossing two coins at least one heads.  They are mutually exclusive, exhaustive & independent.  This is an union:
+
+$$P(\text{at least one heads}) = \frac{1}{2} + \frac{1}{2} - \frac{1}{4} = 0.75$$
+
+
+Probability of tossing two coins __AND__ getting two heads.  They are mutually exclusive, exhaustive & independent.  This is an Intersection:
+
+This simplifies to:
+
+$$P(\text{Heads * 2}) = \frac{1}{2} * \frac{1}{2} = \frac{1}{4}$$
+
+
+__Task__
+__Calculate the probability of rolling two 3's with a fair, six-sided die__
+
+
+
+
+__Task__
+__Calculate the probability of rolling a total of 8 with a fair, six-sided die__
+__You will probably need to draw this out.__
+
+
+
 
 # Odds
 
+We have looked at probability, but 'odds' is a related concept.  We keep the same numerator, but we remove it from the denominator, and it is mutually exclusive and exhaustive:
+
+$$Odds(A)  =  \frac{P(A)}{1 - P(A)}$$
+In the case of the coin toss:
+
+$$Odds(Heads)  =  \frac{P(Heads)}{1 - P(Heads)} = \frac{0.5}{(1-0.5)} = 1 $$
+... or if you are used to sports betting, we might hear the odds described as 1:1.
+
+Notice it is different to probability.  So probability and odds are not the same but related:
+
+```{r odds_prob}
+
+odds_prob <- 
+  data.frame(
+    probability = seq(0.01, 0.99, 0.01) / 1,
+    odds = seq(0.01, 0.99, 0.01) / (1 - seq(0.01, 0.99, 0.01))
+  )
+
+odds_prob |> 
+  ggplot(aes(x = probability, odds)) +
+  geom_line() +
+  geom_vline(xintercept = 1, linetype = "dashed") +
+  scale_y_continuous(breaks = seq(0,100, 10)) +
+  scale_x_continuous(breaks = seq(0,1, 0.1)) +
+  labs(title = "Probability vs. Odds", subtitle = "vertical line = 100% probabilty, i.e. no chance involved")
+
+
+```
+
+
+
+
+
+
 # Extending the 2x2 table
 
+We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics
+
 ## Relative risk
+
+One common statistic is the 'relative risk.'  This is the ratio of risk in two different groups.  We may want to compare the risk in each exposure group and get a measure of that relationship.
+
+$$ \text{RR(Exposure+ / Exposure-)} = a + b / c + d$$
 
 # Absolute risk / absolute risk reduction
 
 ## Odds ratios
 
-
+C
 
 
 # Summary
 
+
+# References
+
+Great chapter in on Learning Statistics with R, by
+Not much code, more about understanding.
+https://learningstatisticswithr.com/book/probability.html
+
+
+Confuion matrix article, particulalry the table of what rates are what:
+https://en.wikipedia.org/wiki/Confusion_matrix
 
 
 ```{=html}
