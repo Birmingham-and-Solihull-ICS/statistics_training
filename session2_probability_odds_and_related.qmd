@@ -52,27 +52,29 @@ This session discusses how we can use statistics to infer things from data, comm
 
 Some of the terminology might get a bit overwhelming here, but the main things to be aware of are:
 
-* Experiment / Trial:  The number of times something is conducted, e.g. a dice role or coin toss.
-* Outcome:  The possible result from an experiment / trial
-* Exposure:  Groups that are systematically different in of different units who's outcomes we might  
+* __Experiment / Trial:__  The number of times something is conducted, e.g. a dice role or coin toss.
+* __Outcome:__  The possible result we are interested in.  E.g. death, developing a disease
+* __Exposure:__  Groups that are systematically different who's outcomes we might be interested in.  This might be in-terms of receiving a treatment, or having a risk factor.  E.g. Amputations in diabetics v.s. non-diabetics, or deaths in groups who recieved a drug vs. those who didn't.
 
 
-* ___A-priori probability:___This is classical 'known' probability.  E.g. likelihood of a particular dice role, given 6 sides.
-* ___Empirical probability:___ Based solely on our observations, not fully 'known'
+* ___A-priori probability:___ This is classical 'known' probability.  E.g. likelihood of a particular dice role, given 6 sides.
+* ___Empirical probability: ___ Based solely on our observations, not fully 'known'
 
 
 ## Notation
 
-We will use a bit of algebraic notation in this section... ___it's not as hard as it looks on first glance___.  
+We will use a bit of algebraic notation in this section... ___it's not as hard as it looks on first glance!___.  
 
 ### Algebraic notation
 
-We will use $P$ to mean the probability of something some event that we might name $s$, and this will look like $P(a)$
+We will use $P$ to mean the probability of something some event that we might name $A$, and this will look like $P(A)$.  We will commonly talk about two events: $A$ and $B$.
 
 
 ### 2 x 2 tables
 
-We will use a standard sort of table from epidemiology/statistics for this.  The '2x2 table' is 2 rows * 2 columns, and allow us to compare outcomes (events, intervention, what happened etc.) in groups (exposure, cohort):
+We will also use a standard sort of table from epidemiology/statistics.  The '2x2 table' is 2 rows * 2 columns, and allow us to compare outcomes (events, intervention, what happened etc.) in groups (exposure, cohort):
+
+<br>
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -82,18 +84,17 @@ We will use a standard sort of table from epidemiology/statistics for this.  The
 |E+| a | b |
 |E-| c | d |
 : {.striped .hover}
-
-::: {.column width="50%"}
-Something else
-
 :::
+
+::: {.column width="48%"}
+<br>
+
+* E = 'Exposure', meaning how the groups differ
+* O = Outcome, what were the different results in groups
+:::
+
 ::::
 
-
-```{r table1}
-table("a", "b", "c", "d")
-
-```
 
 
 # Probability
@@ -101,25 +102,43 @@ table("a", "b", "c", "d")
 Probability is a way of quantifying events, and how likely they are to happen.  This might be in a closed, or __a-priori__ system (like a dice role), or an open, or __empirical__, system (how likely is it that a patient dies in hospital).
 
 We usually describe this as the number of times an event is likely to occur, out of the number of possible events.
+<br><br>
 
 $$P(A) =  \frac{\text{Number of outcomes making up event (A)}}{\text{Total number of outcomes}}$$
 
+<br><br>
 If we consider flipping a fair coin:
 
 $$P(heads) = \frac{(1 * heads)}{(1* heads) + (1 * tails)} = \frac{1}{2} = 0.5 $$
-
+<br><br>
 If we consider a fair dice (die) roll, what is the probability of any given number, e.g. 6:
 
-$$P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6} $$
+$$P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6}$$
 
 If we consider a red card in a deck of cards (no jokers):
 
-$$P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5 $$
+$$P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5$$
+<br><br>
+If we consider drawing a queen in a full deck of cards (no jokers):
 
-I we consider drawing a queen in a full deck of cards (no jokers):
+
+$$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077$$
+<br><br>
+
+## Actvity:  Dice rolling
+
+Roll 2 dice at least 24 times and note them down.  Write each possible number down: 1 - 12, and make a tally of each roll.
+
+__What do you see?__
 
 
-$$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077 $$
+__How would you calculate the probability of rolling each number?__
+
+This is the _Empirical probability_, as we are calculating it from a sample, not in theory.
+
+__What is the probability of rolling an given number on each die?__
+
+
 
 ## Types
 
@@ -127,22 +146,19 @@ Our simple examples so far have been easy to understand, as they have been singl
 
 ### Exclusivity
 
-If we have more than one event, but being one prevents any other, this is known as 'exclusive'.  For example, a coin toss of heads is exclusive, and it cannot be tails at the same time.  If it is one, it is not the other.  This is the case for both heads and tails, so we can call it _mutually exclusive_
+If we have more than one event, but one event prevents any other, we refer to it as exclusive 'exclusive'.  For example, a coin toss of heads is exclusive, and it cannot be tails at the same time.  If it is one, it is not the other.  This is the case for both heads and tails, so we can call it _mutually exclusive_.
 
-For two mutually exclusive events: A & B
-
-$$P(A, B) = 0$$
+<img src = "./assets/img/mutually_exclusive.png" class="center">
 
 __i.e. There is 0 zero change of both events at the same time.  Being one prevents being the other.__
 
+<br><br>
 
 ### Exhaustivity
 
 If we have accounted for all possible outcomes, we can consider the options 'exhausted.'  E.g. with the coin toss, both options of heads and tails account for all the options, so we would consider that exhaustive and, as with exclusivity, it is also mutually exhaustive.
 
-For two mutually exhaustive events:
-
-£$$P(A) + P(B) = 1$$
+<img src = "./assets/img/mutually_exhaustive.png" class="center">
 
 __i.e. one of them definitely happens__
 
@@ -150,25 +166,61 @@ __i.e. one of them definitely happens__
 It is possible to be both mutually exhaustive and mutually exclusive, like our coin example.  Many real world applications are not, e.g. the probability of an individual being female and having brown hair are neither exclusive or exhaustive.
 
 
+
+### Other examples 
+
+What are these two situations?
+
+::: {.panel-tabset}
+
+## Questions
+1. Rolling a die and getting either an even number, or any number except 2.
+
+2. Rolling a die and getting either an even number, or any number except 3.
+
+## 1.
+
+__Exhaustive,  not mutually exclusive__
+Rolling a 4 or a 6 are both even, but the set contains all results. 
+<img src = "./assets/img/scenario_2.png" class="right">
+
+## 2
+
+__It's complicated__
+Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (conditional?)
+<img src = "./assets/img/scenario_3.png" class="right">
+
+##
+:::
+
+<br><br>
+
 ### Independence / Conditionality
 
 When we are considering more than one event, we have to assess whether or not they are related.  There are two main ways in which they can be related:
 
 
-* If two events __do not__ have affect on each other, then they can be considered to be independent.  E.g. two coin tosses are perfectly isolated, and the previous toss does not affect it, nor does the subsequent coin toss. Both coin tosses
+* If two events __do not__ have affect on each other, then they can be considered to be __independent__.  E.g. two coin tosses are perfectly isolated, and the previous toss does not affect it, nor does the subsequent coin toss. Both coin tosses
+<br><br>
 
-* If one event has an effect on the subsequent outcomes, then they are considered condition.  E.g. probability of drawing drawing a red M&M from a bag with two blue and five red M&Ms left.
+* If one event has an effect on the subsequent outcomes, then they are considered condition.  E.g. probability of drawing two consecutive red M&M from a bag that contains two blue and five red M&Ms left:
+<br>
 
 Draw 1 = $P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71$
 
-You drew a red.
+<br>
+_You drew a red._
 
+<br>
 Draw 2 = $P(red) = \frac{4 * red}{(4 * red) + (2 * blue)} = \frac{4}{6} = 0.6\dot{6}$
 
-
+<br><br>
 __What would happen if you replaced the red M&M in the bag before the second draw?__
 
+<br><br>
 __How would you describe this situation now?__
+
+
 
 
 We can update our notation to use the `|` which indicates conditional probability: $P(B|A)$
@@ -178,7 +230,7 @@ So the probability of B, given that A has happened.
 This leads us to useful formula for the probability of A and B:
 
 $$P(\text{A and B})  = P(A) * P(B|A)$$
-Applied to our M&Ms, with Draw 1 and Draw 2, the probability of brawing two reds is:
+Applied to our M&Ms, with Draw 1 and Draw 2, the probability of drawing two reds is:
 
 $$P(\text{Draw 2 | Draw 1}) = P(\text{Draw 1}) * P(\text{Draw 2 | Draw 1})) =   \frac{5}{7} * \frac{4}{6} = 0.48$$
 
@@ -192,13 +244,14 @@ This can be done with regular maths, with care as to whether things are independ
 
 Both of these depend on whether it is mutually exclusive, and whether indecent.
 
-* Union:  The probability of either A __OR__ B:  $P(A\cup B) = P(A) + P(B) - P(A\cap B)$  
-* Intersection: The probability of A __AND__ B.  $P(A\cap B) = P(A) * P(B)$ for independent data, you commonly need to work out all possible outcomes, and potentially draw a tree diagram, for more complicated situations
+* __Union:__  The probability of either A __OR__ B:  $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
+<br><br>
+* __Intersection:__ The probability of A __AND__ B.  $P(A\cap B) = P(A) * P(B)$ for independent data, you commonly need to work out all possible outcomes, and potentially draw a tree diagram, for more complicated situations
 
 
 E.g.
 
-Probability of tossing two coins at least one heads.  They are mutually exclusive, exhaustive & independent.  This is an union:
+Probability of tossing two coins and getting __at least one__ heads.  They are mutually exclusive, exhaustive & independent.  This is a union:
 
 $$P(\text{at least one heads}) = \frac{1}{2} + \frac{1}{2} - \frac{1}{4} = 0.75$$
 
@@ -211,13 +264,14 @@ $$P(\text{Heads * 2}) = \frac{1}{2} * \frac{1}{2} = \frac{1}{4}$$
 
 
 __Task__
+
 __Calculate the probability of rolling two 3's with a fair, six-sided die__
 
 
 
 
 __Task__
-__Calculate the probability of rolling a total of 8 with a fair, six-sided die__
+__Calculate the (a-priori) probability of rolling a total of 8 with two rolls of a fair, six-sided die__
 __You will probably need to draw this out.__
 
 
@@ -261,19 +315,100 @@ odds_prob |>
 
 # Extending the 2x2 table
 
-We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics
+We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics.
+
+<br>
+
+:::: {.columns}
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| a | b |
+|E-| c | d |
+: {.striped .hover}
+:::
+
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| 50 | 62 |
+|E-| 550 |760 |
+: {.striped .hover}
+:::
+
+::::
+
+### Prevelence of the outcome
+
+We use the word prevalence to mean the people in the population with the condition.  This is different to incidence, which is the number of new cases.  Both should relate to a specific time period.  We can calculate the prevalence in our study from the 2 x 2 table.
+
+$$Prevalence_{o+} = \frac{(a + c)}{(a + b + c + d)} = \frac{(50 + 550)}{(50 + 62 + 550 + 760)} = 2022$$
+
+### Absolute risk
+
+* Risk of outcome in the exposure group: $R_{e+} = a / (a+b) = 50 / (50 + 62) = 0.45$
+* Risk of outcome in the exposure group: $R_{e-} / (c+d) = 550 / (550 + 760) = 0.42$
+
+
+## Risk difference reduction
+
+$\text{Risk Difference} = R_{e+} - R_{e-} = 0.45 - 0.42 = 0.03$
+
+Interpretation: _"3% of the outcomes could be attributed to the exposure, the rest would have happened anyway"_
+
+
+## Number Needed to Treat (NNT)
+
+This transforms a difference in risk in to real numbers of people.  It is a measure of how many more people we would need the exposure/treatment for one to benefit.
+
+$$NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}$$
+We would need to expose / treat 33 patients to for one to benefit.
 
 ## Relative risk
 
 One common statistic is the 'relative risk.'  This is the ratio of risk in two different groups.  We may want to compare the risk in each exposure group and get a measure of that relationship.
 
-$$ \text{RR(Exposure+ / Exposure-)} = a + b / c + d$$
+$$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
+* Relative risk < 1, event is less likely in the exposure group
+* Relative risk = 1, event is equally likely in the exposure group
+* Relative risk > 1, event is more likely in the exposure group
 
-# Absolute risk / absolute risk reduction
+
+ absolute risk reduction
+
+
 
 ## Odds ratios
 
-C
+ * Odds in exposed group:  $a / b$
+ * Odds in exposed group:  $c / d$
+ 
+ Therefore, the odds ratio:
+ $$ \text{OR(Exposure+ / Exposure-)} = \frac{a / b}{c/ d}$$
+ ___The interpretation of an OR is the same as that of an RR, with the word odds substituted for risk___.
+
+
+# Frequentist vs. Bayesian
+
+The tools we've discussed in this session are usually being used to make decisions or drawing conclusions.
+It's worth noting here, that probability is an independent concept, but the structure you use it in can be quite different and there are various contrary positions on it.  Two of the major camps are 'Frequentist' and 'Bayesian', and it's worth knowing roughly what they represent.
+
+## Frequentism:
+
+This approach considers probability as a long-run frequency of events through repeats.  Infinite repeats....  The underlying assumption here is that there is a 'true' value, and we are taking samples to try and work out how far away we are in-terms of uncertainty.  Importantly, we assume no prior knowledge of the systems. 
+
++ The idea of the NULL hypothesis is associated with this approach
++ We are understanding how likely our answer would be, given infinite repeats, compared to the population value.
++ The 'p-value' is the probability of collecting another dataset at least this extreme as the one collected by chance alone. 
++ Confidence intervals / standard error and classic hypothesis testing are from this camp.
++ Some of the major elements are often misinterpreted
+
+## Baeysianism:
+
+Attributed to Reverend Thomas Bayes, this group of philosophies understands probability as a degree of belief in something.
+
 
 
 # Summary
@@ -289,6 +424,9 @@ https://learningstatisticswithr.com/book/probability.html
 Confuion matrix article, particulalry the table of what rates are what:
 https://en.wikipedia.org/wiki/Confusion_matrix
 
+
+Nice tutorial on the different parts of the 2 x 2 table and interpetation in epidemiology:
+https://open.oregonstate.education/epidemiology/chapter/introduction-to-2x2-tables-epidemiologic-study-design-and-measures-of-association/
 
 ```{=html}
 
