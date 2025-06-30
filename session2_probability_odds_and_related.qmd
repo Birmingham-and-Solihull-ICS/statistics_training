@@ -1,6 +1,6 @@
 ---
 title: "Session 2: Probability, Odds and related things"
-date: "2025-05-22"
+date: "2025-06-20"
 author: Chris Mainey
 date-format: "D MMMM YYYY"
 format: bsol-html
@@ -48,7 +48,7 @@ theme_set(
 
 This session discusses how we can use statistics to infer things from data, commonly known as ___statistical inference___. Statistical inference is built, however on ___probability theory___, so we will spend much of this session discussing that, thinking about what probability means, and some of the common representations of it as probability ratios, relative risk, and odds ratios.
 
-## Teminology 
+## Terminology 
 
 Some of the terminology might get a bit overwhelming here, but the main things to be aware of are:
 
@@ -65,10 +65,13 @@ Some of the terminology might get a bit overwhelming here, but the main things t
 
 We will use a bit of algebraic notation in this section... ___it's not as hard as it looks on first glance!___.  
 
+<br><br>
+
 ### Algebraic notation
 
 We will use $P$ to mean the probability of something some event that we might name $A$, and this will look like $P(A)$.  We will commonly talk about two events: $A$ and $B$.
 
+<br>
 
 ### 2 x 2 tables
 
@@ -95,7 +98,10 @@ We will also use a standard sort of table from epidemiology/statistics.  The '2x
 
 ::::
 
+<br>
+---
 
+<br>
 
 # Probability
 
@@ -107,23 +113,29 @@ We usually describe this as the number of times an event is likely to occur, out
 $$P(A) =  \frac{\text{Number of outcomes making up event (A)}}{\text{Total number of outcomes}}$$
 
 <br><br>
+
 If we consider flipping a fair coin:
 
 $$P(heads) = \frac{(1 * heads)}{(1* heads) + (1 * tails)} = \frac{1}{2} = 0.5 $$
 <br><br>
+
 If we consider a fair dice (die) roll, what is the probability of any given number, e.g. 6:
 
 $$P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6}$$
+
+<br><br>
 
 If we consider a red card in a deck of cards (no jokers):
 
 $$P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5$$
 <br><br>
+
 If we consider drawing a queen in a full deck of cards (no jokers):
 
 
 $$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077$$
-<br><br>
+
+---
 
 ## Actvity:  Dice rolling
 
@@ -138,9 +150,10 @@ This is the _Empirical probability_, as we are calculating it from a sample, not
 
 __What is the probability of rolling an given number on each die?__
 
+<br><br>
 
 
-## Types
+## Types of probablity
 
 Our simple examples so far have been easy to understand, as they have been single events in isolation.  We need to add a few more descriptions around situations to distinguish what is going on and how that affects us when there is more than one thing we are interested it. 
 
@@ -167,9 +180,9 @@ It is possible to be both mutually exhaustive and mutually exclusive, like our c
 
 
 
-### Other examples 
+### Exercises:
 
-What are these two situations?
+What are these two situations?  First try and answer the questions before looking up the answers on the tabs.
 
 ::: {.panel-tabset}
 
@@ -218,9 +231,8 @@ Draw 2 = $P(red) = \frac{4 * red}{(4 * red) + (2 * blue)} = \frac{4}{6} = 0.6\do
 <br><br>
 __What would happen if you replaced the red M&M in the bag before the second draw?__
 
-<br><br>
+<br><
 __How would you describe this situation now?__
-
 
 
 
@@ -399,9 +411,9 @@ $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 The tools we've discussed in this session are usually being used to make decisions or drawing conclusions.
 It's worth noting here, that probability is an independent concept, but the structure you use it in can be quite different and there are various contrary positions on it.  Two of the major camps are 'Frequentist' and 'Bayesian', and it's worth knowing roughly what they represent.
 
-## Frequentism:
+## Frequentist
 
-This approach considers probability as a long-run frequency of events through repeats.  Infinite repeats....  The underlying assumption here is that there is a 'true' value, and we are taking samples to try and work out how far away we are in-terms of uncertainty.  Importantly, we assume no prior knowledge of the systems. 
+This approach considers probability as a long-run frequency of events through repeats.  Infinite repeats....  The underlying assumption here is that there is a 'true' value, and we are taking samples to try and work out how far away we are from it.  Importantly, we assume no prior knowledge of the systems. 
 
 + The idea of the NULL hypothesis is associated with this approach
 + We are understanding how likely our answer would be, given infinite repeats, compared to the population value.
@@ -409,11 +421,19 @@ This approach considers probability as a long-run frequency of events through re
 + Confidence intervals / standard error and classic hypothesis testing are from this camp.
 + Some of the major elements are often misinterpreted
 
-## Baeysianism:
+## Bayesian
 
 Attributed to Reverend Thomas Bayes, this group of philosophies understands probability as a degree of belief in something.
+We don't believe in an underlying 'true model' that we are trying to estimate, we are instead expressing our ("prior") hypothesis and using the data to strengthen or weaken our belief in that hypothesis.  If the data are consistent with our hypothesis, our belief get stronger.
 
+> I'm carrying an umbrella.  Do you think it will rain today?
 
+You would then use your prior belief, combined with observations from the data to calculate the join probability of carrying an umbrella and it raining.  We end up using Bayes Theorm:
+$$ P(A | B) = \frac{P(B | A) P(A)}{P(B)}$$
+Or using our example:
+
+$$ P(umbrella | rain) = \frac{P(rain | umbrella) P(umbrella)}{P(rain)}$$
+These methods use the combination of conditional and marginal probability. 
 
 # Summary
 
@@ -425,16 +445,15 @@ Not much code, more about understanding.
 https://learningstatisticswithr.com/book/probability.html
 
 
-Confuion matrix article, particulalry the table of what rates are what:
+Confusion matrix article, particularly the table of what rates are what:
 https://en.wikipedia.org/wiki/Confusion_matrix
 
 
-Nice tutorial on the different parts of the 2 x 2 table and interpetation in epidemiology:
+Nice tutorial on the different parts of the 2 x 2 table and interpretation in epidemiology:
 https://open.oregonstate.education/epidemiology/chapter/introduction-to-2x2-tables-epidemiologic-study-design-and-measures-of-association/
 
 ```{=html}
 
 <div class="footer-banner">
-  <img src="_extensions/Birmingham-and-Solihull-ICS/bsol/Logo/ML_logo.png" alt="ML Logo" class="footer-logo left-logo" />
   <img src="_extensions/Birmingham-and-Solihull-ICS/bsol/Logo/ICB_logo.png" alt="ICB Logo" class="footer-logo right-logo" />
 </div>
