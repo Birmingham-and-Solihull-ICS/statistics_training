@@ -52,13 +52,13 @@ This session discusses how we can use statistics to infer things from data, comm
 
 Some of the terminology might get a bit overwhelming here, but the main things to be aware of are:
 
-* __Experiment / Trial:__  The number of times something is conducted, e.g. a dice role or coin toss.
-* __Outcome:__  The possible result we are interested in.  E.g. death, developing a disease
-* __Exposure:__  Groups that are systematically different who's outcomes we might be interested in.  This might be in-terms of receiving a treatment, or having a risk factor.  E.g. Amputations in diabetics v.s. non-diabetics, or deaths in groups who recieved a drug vs. those who didn't.
+* __Experiment / Trial:__ The number of times something is conducted, e.g. a dice role or coin toss.
+* __Outcome:__ The possible result we are interested in.  E.g. death, developing a disease
+* __Exposure:__ Groups that are systematically different who's outcomes we might be interested in.  This might be in-terms of receiving a treatment, or having a risk factor.  E.g. Amputations in diabetics v.s. non-diabetics, or deaths in groups who received a drug vs. those who didn't.
 
 
 * ___A-priori probability:___ This is classical 'known' probability.  E.g. likelihood of a particular dice role, given 6 sides.
-* ___Empirical probability: ___ Based solely on our observations, not fully 'known'
+* ___Empirical probability:___ Based solely on our observations, not fully 'known'
 
 
 ## Notation
@@ -204,7 +204,8 @@ When we are considering more than one event, we have to assess whether or not th
 <br><br>
 
 * If one event has an effect on the subsequent outcomes, then they are considered condition.  E.g. probability of drawing two consecutive red M&M from a bag that contains two blue and five red M&Ms left:
-<br>
+
+<br><br>
 
 Draw 1 = $P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71$
 
@@ -327,6 +328,9 @@ We often use the 2 x 2 table in epidemiology to express the probability of event
 |E+| a | b |
 |E-| c | d |
 : {.striped .hover}
+:::
+
+::: {.column width="10%"}
 :::
 
 ::: {.column width="45%"}
