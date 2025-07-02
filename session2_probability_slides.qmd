@@ -1,0 +1,179 @@
+---
+title: "Session 2: Probability, Odds and related things"
+date: "2025-06-20"
+author: Chris Mainey
+date-format: "D MMMM YYYY"
+format: 
+  revealjs:
+    css: assets/styles.scss
+    slide-number: true
+    logo: assets/img/logo.png
+fig-align: 'center'
+fig-width: 7
+fig-height: 5 
+execute:
+  echo: false
+  cache: false             # Cache results
+  warning: false           # Do not include warnings in rendered output
+  error: false             # Do not include errors in the output
+  feeze: auto              # Re-compute previously generated computational output only in case their source file changes
+crossref:
+  fig-title: '**Figure**'
+  fig-labels: arabic
+---
+
+```{r}
+#| label: load-libraries
+#| warning: false
+#| include: false
+#| output: false
+
+
+# Load the required library
+
+library(ggplot2)
+library(plotly)
+library(tidyverse)
+library(scales)
+library(DT)
+library(BSOLTheme)
+
+theme_set(
+  theme_bsol() +
+    theme(axis.text = element_text(size = unit(20, "pt")),
+          axis.title = element_text(size = unit(20, "pt")),
+          text = element_text(size = unit(20, "pt"))
+          )
+)
+
+```
+
+## Introduction 
+
++ Commonly using statistics to infer things from data: known as ___statistical inference___
++ Built on ___probability theory___
+
+## Terminology 
+
+Main things to be aware of are:
+
+* __Experiment / Trial / Event:__ The number of times something is conducted, e.g. a dice role or coin toss.
+* __Outcome:__ The possible result we are interested in.  E.g. death, developing a disease
+* __Exposure:__ Groups that are systematically different who's outcomes we might be interested in. E.g. treatment / control
+
+
+## Activity:  Coin toss
+
+In groups, or individually, toss a coin 20 times and note down how many 'heads' you get.
+
+::: {.fragment}
+1. What is the 'experiment'?
+:::
+
+::: {.fragment}
+2. What is the 'outcome'?
+:::
+
+::: {.fragment}
+3. How do you express your answer?  
+:::
+
+
+## Probability
+
+Probability is a way of quantifying events, and how likely they are to happen, out of the available options.
+
++ __a-priori: __ where we know the probability (like a dice role)
++  __empirical: __ where we have to work it out through observation
+
+
+We usually describe this as the number of times an event is likely to occur, out of the number of possible events.
+
+:::{.column-page}
+$$P(A) =  \frac{\text{Number of outcomes making up event (A)}}{\text{Total number of outcomes}}$$
+:::
+
+## Example: coin toss
+
+::: {.fragment}
+If we consider flipping a fair coin:
+
+$$P(heads) = \frac{(1 * heads)}{(1* heads) + (1 * tails)} = \frac{1}{2} = 0.5$$
+:::
+
+## More examples: dice
+
+If we consider a fair dice (die) roll, what is the probability of any given number, e.g. 6:
+
+$$P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6}$$
+
+
+## More example: deck of cards (1)
+
+If we consider a red card in a deck of cards (no jokers):
+
+$$P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5$$
+<br><br>
+
+## More example: deck of cards (2)
+
+What would be the probability of drawing a queen in a full deck of cards (no jokers):
+
+
+$$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077$$
+
+## Actvity:  Dice rolling
+
+Roll 2 dice at least 24 times and note them down.  Write each possible number down: 1 - 12, and make a tally of each roll.
+<br><br>
+__What do you see?__
+
+<br>
+__How would you calculate the probability of rolling each number?__
+
+<br>
+__What is the probability of rolling any given number on each die?__
+
+<br>
+
+
+## Types of relationships within probablity
+
+* ___Exclusivity:___ If we have more than one event, but one event prevents any other, we refer to it as exclusive 'exclusive'. E.g. a coin toss being 'heads' mean it is not 'tails'.
+
+* ___Exhaustive:___ If we have accounted for all possible outcomes, we can consider the options 'exhausted.' E.g.  coin toss: probability of heads and probability of tails accounts for all options.
+
+
+So the coin toss is ___mutually exclusive and exhaustive.___
+
+## Your turn:
+
+
+### Exercises:
+
+What are these two situations?  First try and answer the questions before looking up the answers on the tabs.
+
+::: {.panel-tabset}
+
+### Questions
+1. Rolling a die and getting either an even number, or any number except 2.
+
+2. Rolling a die and getting either an even number, or any number except 3.
+
+### 1.
+
+__Exhaustive,  not mutually exclusive__
+Rolling a 4 or a 6 are both even, but the set contains all results. 
+<img src = "./assets/img/scenario_2.png" class="right">
+
+### 2
+
+__It's complicated__
+Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (conditional?)
+<img src = "./assets/img/scenario_3.png" class="right">
+
+##
+:::
+
+<br><br>
+

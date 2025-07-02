@@ -52,7 +52,7 @@ This session discusses how we can use statistics to infer things from data, comm
 
 Some of the terminology might get a bit overwhelming here, but the main things to be aware of are:
 
-* __Experiment / Trial:__ The number of times something is conducted, e.g. a dice role or coin toss.
+* __Experiment / Trial / Event:__ The number of times something is conducted, e.g. a dice role or coin toss.
 * __Outcome:__ The possible result we are interested in.  E.g. death, developing a disease
 * __Exposure:__ Groups that are systematically different who's outcomes we might be interested in.  This might be in-terms of receiving a treatment, or having a risk factor.  E.g. Amputations in diabetics v.s. non-diabetics, or deaths in groups who received a drug vs. those who didn't.
 
@@ -135,8 +135,6 @@ If we consider drawing a queen in a full deck of cards (no jokers):
 
 $$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077$$
 
----
-
 ## Actvity:  Dice rolling
 
 Roll 2 dice at least 24 times and note them down.  Write each possible number down: 1 - 12, and make a tally of each roll.
@@ -148,7 +146,7 @@ __How would you calculate the probability of rolling each number?__
 
 This is the _Empirical probability_, as we are calculating it from a sample, not in theory.
 
-__What is the probability of rolling an given number on each die?__
+__What is the probability of rolling any given number on each die?__
 
 <br><br>
 
