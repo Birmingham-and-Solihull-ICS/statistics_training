@@ -4,7 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-
-.reveal .slide-logo {
-    max-height: 4em !important;
+.MathJax_Display {
+font-size: 100% !important;
+color: #333;
 }

@@ -356,14 +356,16 @@ We often use the 2 x 2 table in epidemiology to express the probability of event
 
 ### Prevelence of the outcome
 
-We use the word prevalence to mean the people in the population with the condition.  This is different to incidence, which is the number of new cases.  Both should relate to a specific time period.  We can calculate the prevalence in our study from the 2 x 2 table.
+We use the word ___prevalence___ to mean the people in the population with the condition.  This is different to ___incidence___, which is the number of new cases.  Both should relate to a specific time period.  We can calculate the prevalence in our study from the 2 x 2 table.
 
 $$Prevalence_{o+} = \frac{(a + c)}{(a + b + c + d)} = \frac{(50 + 550)}{(50 + 62 + 550 + 760)} = 2022$$
 
 ### Absolute risk
 
-* Risk of outcome in the exposure group: $R_{e+} = a / (a+b) = 50 / (50 + 62) = 0.45$
-* Risk of outcome in the exposure group: $R_{e-} / (c+d) = 550 / (550 + 760) = 0.42$
+When we use 'absolute' it refers to real numbers, not relative difference.
+
+* Risk of outcome in the exposed group: $R_{e+} = a / (a+b) = 50 / (50 + 62) = 0.45$
+* Risk of outcome in the un-exposed group: $R_{e-} = c / (c+d) = 550 / (550 + 760) = 0.42$
 
 
 ## Risk difference reduction
@@ -388,9 +390,6 @@ $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 * Relative risk < 1, event is less likely in the exposure group
 * Relative risk = 1, event is equally likely in the exposure group
 * Relative risk > 1, event is more likely in the exposure group
-
-
- absolute risk reduction
 
 
 

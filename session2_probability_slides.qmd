@@ -5,9 +5,21 @@ author: Chris Mainey
 date-format: "D MMMM YYYY"
 format: 
   revealjs:
-    css: assets/styles.scss
+    transition: slide
+    css: "./assets/styles.css"
+    mainfont: "Open Sans"
+    fontsize: 2vw
+    toc: false
     slide-number: true
-    logo: assets/img/logo.png
+logo: "./assets/img/logo.png"
+include-in-header:
+  - text: |
+      <style>
+      .reveal .slide-logo {
+        max-height: unset;
+        height: 7vh;
+      }
+      </style>
 fig-align: 'center'
 fig-width: 7
 fig-height: 5 
@@ -89,38 +101,53 @@ Probability is a way of quantifying events, and how likely they are to happen, o
 
 We usually describe this as the number of times an event is likely to occur, out of the number of possible events.
 
-:::{.column-page}
+::: {.fragment}
 $$P(A) =  \frac{\text{Number of outcomes making up event (A)}}{\text{Total number of outcomes}}$$
 :::
 
 ## Example: coin toss
 
-::: {.fragment}
+<br>
+
 If we consider flipping a fair coin:
 
+::: {.r-fit-text}
 $$P(heads) = \frac{(1 * heads)}{(1* heads) + (1 * tails)} = \frac{1}{2} = 0.5$$
 :::
 
 ## More examples: dice
 
+<br>
+
 If we consider a fair dice (die) roll, what is the probability of any given number, e.g. 6:
 
+::: {.r-fit-text}
 $$P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6}$$
-
+:::
 
 ## More example: deck of cards (1)
 
+<br>
+
 If we consider a red card in a deck of cards (no jokers):
 
+<br>
+
+::: {.r-fit-text}
 $$P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5$$
-<br><br>
+:::
 
 ## More example: deck of cards (2)
 
+<br>
+
 What would be the probability of drawing a queen in a full deck of cards (no jokers):
 
+<br>
 
+::: {.r-fit-text}
 $$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077$$
+:::
 
 ## Actvity:  Dice rolling
 
@@ -149,31 +176,358 @@ So the coin toss is ___mutually exclusive and exhaustive.___
 ## Your turn:
 
 
-### Exercises:
+## Exercises:
 
-What are these two situations?  First try and answer the questions before looking up the answers on the tabs.
+What are these two situations?  Try and assess these in terms of exclusivity and exhaustivity:
 
-::: {.panel-tabset}
 
-### Questions
 1. Rolling a die and getting either an even number, or any number except 2.
 
 2. Rolling a die and getting either an even number, or any number except 3.
 
-### 1.
+## 1. ...even number, or any number except 2.
 
-__Exhaustive,  not mutually exclusive__
-Rolling a 4 or a 6 are both even, but the set contains all results. 
 <img src = "./assets/img/scenario_2.png" class="right">
 
-### 2
+__Exhaustive,  not mutually exclusive__
 
-__It's complicated__
-Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (conditional?)
+Rolling a 4 or a 6 are both even, but the set contains all results. 
+
+
+## 2. ... even number, or any number except 3.
+
 <img src = "./assets/img/scenario_3.png" class="right">
 
-##
-:::
+__It's complicated__
+
+Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (conditional?)
+
+
+## Independence / Conditionality
+
+When we are considering more than one event, we have to assess whether or not they are related.
+
+
+* If two events __do not__ have affect on each other, then they can be considered to be __independent__.
 
 <br><br>
 
+* If one event has an effect on the subsequent outcomes, then they are considered __condition__.
+
+## Example (1)
+
+You have a bag of "M&Ms", containing two blue and 5 red M&Ms.
+What's the probability of drawing two consecutive red M&Ms?
+<br>
+
+:::{.fragment}
+Draw 1 = $P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71$
+:::
+
+:::{.fragment}
+<br>
+___You drew a red.___
+:::
+
+:::{.fragment}
+<br>
+Draw 2 = $P(red) = \frac{4 * red}{(4 * red) + (2 * blue)} = \frac{4}{6} = 0.6\dot{6}$
+:::
+
+## Example (2)
+
+You have a bag of "M&Ms", containing two blue and 5 red M&Ms.
+What's the probability of drawing two consecutive red M&Ms?
+
+<br><br>
+__What would happen if you replaced the red M&M in the bag before the second draw?__
+
+<br><br>
+__How would you describe this situation now?__
+
+## Conditional Probability
+
+We can use `|` in our notation to show conditional probability: $P(B|A)$
+
+<br>
+_So the probability of B, given that A has happened._
+
+<br>
+
+:::{.fragment}
+
+This leads us to the probability of A and B:
+
+$$P(\text{A and B})  = P(A) * P(B|A)$$
+:::
+
+## The M&M example:
+
+Applied to our M&Ms, the probability of drawing two consecutive reds:
+
++ First draw has a denominator of 7
++ By removing 1 M&M, the second draw must have a denominator of 6
+
+::: {.r-fit-text}
+$$P(\text{Draw 2 | Draw 1}) = P(\text{Draw 1}) * P(\text{Draw 2 | Draw 1})) =   \frac{5}{7} * \frac{4}{6} = 0.48$$
+:::
+
+
+
+## Activity
+
+<br>
+
+__Calculate the probability of rolling two 3's with a fair, six-sided die__
+
+<br>
+
+__Calculate the (a-priori) probability of rolling a total of 8 with two rolls of a fair, six-sided die__
+
+__You will probably need to draw this out.__
+
+
+## Odds
+
+:::: {.columns}
+::: {.column width="50%"}
+
+We have looked at probability, but 'odds' is related:
+
++ We keep the same numerator
+
++ Denominator is 1-numerator
+
++ Mutually exclusive and exhaustive
+
+:::
+
+::: {.column width="50%"}
+<br>
+$$Odds(A)  =  \frac{P(A)}{1 - P(A)}$$
+<br>
+:::
+::::
+
+## Example: Odd in the coin toss
+
+$$Odds(Heads)  =  \frac{P(Heads)}{1 - P(Heads)} = \frac{0.5}{(1-0.5)} = 1 $$
+... or if you are used to sports betting, we might hear the odds described as 1:1.
+
+## Are Odds and Probability the same?
+
+```{r odds_prob}
+#| layout-ncol: 1
+#| fig-cap: 
+#|   - "Relationship between Odds and Probability"
+
+odds_prob <- 
+  data.frame(
+    probability = seq(0.01, 0.99, 0.01) / 1,
+    odds = seq(0.01, 0.99, 0.01) / (1 - seq(0.01, 0.99, 0.01))
+  )
+
+odds_prob |> 
+  ggplot(aes(x = probability, odds)) +
+  geom_line() +
+  geom_vline(xintercept = 1, linetype = "dashed") +
+  scale_y_continuous(breaks = seq(0,100, 10)) +
+  scale_x_continuous(breaks = seq(0,1, 0.1)) +
+  labs(title = "Probability vs. Odds", subtitle = "vertical line = 100% probabilty, i.e. no chance involved")
+
+
+```
+
+## Using all this stuff in analytics
+
++ Used often in PHM and epidemiology / public health
++ Used a lot in academic research papers
++ Basis for lots of our statistical measure
+
+<br>
+### The "2 x 2 table"
+
+:::: {.columns}
+::: {.column width="50%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| a | b |
+|E-| c | d |
+: {.striped .hover}
+:::
+
+::: {.column width="48%"}
+
+* E = 'Exposure', meaning how the groups differ
+* O = Outcome, what were the different results in groups
+:::
+
+::::
+
+## Extending the 2x2 table
+
+We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics.
+
+<br>
+
+:::: {.columns}
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| a | b |
+|E-| c | d |
+: {.striped .hover}
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| 50 | 62 |
+|E-| 550 |760 |
+: {.striped .hover}
+:::
+
+::::
+
+## Prevelence of the outcome
+
++ ___Prevalence:___ the people in the population with the condition at any given time.  
+
++ __Incidence:__ the number of new cases in a time period.  
+
++ Both measure relate to a specific time periods, but in different ways.
+
++ We can calculate the prevalence from the 2 x 2 table.
+
+::: {.r-fit-text}
+$$Prevalence_{o+} = \frac{(a + c)}{(a + b + c + d)} = \frac{(50 + 550)}{(50 + 62 + 550 + 760)} = 2022$$
+:::
+
+## Absolute risk
+
+When we use 'absolute' it refers to real numbers, not relative difference.
+
+* Risk of outcome in the exposed group: $R_{E+} = a / (a+b) = 50 / (50 + 62) = 0.45$
+
+* Risk of outcome in the un-exposed group: $R_{E-} = c / (c+d) = 550 / (550 + 760) = 0.42$
+
+
+## Risk difference
+
+Using the two absolute risk measures, we can calculate the difference:
+
+$\text{Risk Difference} = R_{E+} - R_{E-} = 0.45 - 0.42 = 0.03$
+
+Interpretation: _"3% of the outcomes could be attributed to the exposure, the rest would have happened anyway"_
+
+
+## Number Needed to Treat (NNT)
+
++ This transforms a difference in risk in to real numbers of people.  
++ Measure of how many more people we would need the exposure/treatment for one to benefit.
+
+$$NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}$$
+
+___We would need to expose / treat 33 patients to for one to benefit.___
+
+## Relative risk
+
+One common statistic is the 'relative risk.'  This is the ratio of risk in two different groups.  We may want to compare the risk in each exposure group and get a measure of that relationship.
+
+$$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
+
++ RR < 1, event is less likely in the exposure group
++ RR = 1, event is equally likely in the exposure group
++ RR > 1, event is more likely in the exposure group
+
+
+
+## Odds ratios
+
+ * Odds in exposed group:  $a / b$
+ * Odds in exposed group:  $c / d$
+ 
+ Therefore, the odds ratio:
+ $$ \text{OR(Exposure+ / Exposure-)} = \frac{a / b}{c/ d}$$
+ ___The interpretation of an OR is the same as that of an RR, with the word odds substituted for risk___.
+
+## Exercise:
+
+
+:::: {.columns}
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| a | b |
+|E-| c | d |
+: {.striped .hover}
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| 20 | 42 |
+|E-| 248 |3445 |
+: {.striped .hover}
+:::
+
+::::
+
+<br>
+
+### Calculate:
+
++ Risk in each exposure group
++ Relative Risk
++ NNT
++ Odds ratio (if you have time)
+
+
+## Answers (1):
+
+:::: {.columns}
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| a | b |
+|E-| c | d |
+: {.striped .hover}
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+
+| |O(+)|O(-)|
+|:--:|:--:|:-:|
+|E+| 20 | 42 |
+|E-| 248 |3445 |
+: {.striped .hover}
+:::
+
+::::
+
+1. Risk in the exposure group: $R_{E+} = a / (a+b) = 20 / (20 + 42) = 0.32$
+
+2. Risk in the un-exposed group: $R_{E-} c / (c+d) = 248 / (248 + 3445) = 0.07$
+
+## Answers (2):
+
+3. Relative risk $RR_{(R_{E+} / R_{E-})} = 0.32 / 0.07 = 4.57$
+
+4. NNT: $NNT = 1 / (0.32 - 0.07) = 4$
+
+5. Odds ratio:  $$ \text{OR(E+ / E-)} = \frac{a / b}{c/ d} = (20/42)/(248/3445) = 6.61$$

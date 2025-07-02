@@ -30,8 +30,8 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="session2_probability_slides_files/libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
-  <link rel="stylesheet" href="assets/styles.scss">
+  <link rel="stylesheet" href="session2_probability_slides_files/libs/revealjs/dist/theme/quarto-8cfaece65a90d4c553be6314966a9e04.css">
+  <link rel="stylesheet" href="./assets/styles.css">
   <link href="session2_probability_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="session2_probability_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="session2_probability_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,6 +123,12 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  .reveal .slide-logo {
+    max-height: unset;
+    height: 7vh;
+  }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -185,31 +191,43 @@ Chris Mainey
 <li><strong>empirical: </strong> where we have to work it out through observation</li>
 </ul>
 <p>We usually describe this as the number of times an event is likely to occur, out of the number of possible events.</p>
-<div class="column-page">
+<div class="fragment">
 <p><span class="math display">\[P(A) =  \frac{\text{Number of outcomes making up event (A)}}{\text{Total number of outcomes}}\]</span></p>
 </div>
 </section>
 <section id="example-coin-toss" class="slide level2">
 <h2>Example: coin toss</h2>
-<div class="fragment">
+<p><br></p>
 <p>If we consider flipping a fair coin:</p>
+<div class="r-fit-text">
 <p><span class="math display">\[P(heads) = \frac{(1 * heads)}{(1* heads) + (1 * tails)} = \frac{1}{2} = 0.5\]</span></p>
 </div>
 </section>
 <section id="more-examples-dice" class="slide level2">
 <h2>More examples: dice</h2>
+<p><br></p>
 <p>If we consider a fair dice (die) roll, what is the probability of any given number, e.g.&nbsp;6:</p>
+<div class="r-fit-text">
 <p><span class="math display">\[P(number) = \frac{(1 * number)}{\text{6 possible numbers}} = \frac{1}{6} = 0.16\dot{6}\]</span></p>
+</div>
 </section>
 <section id="more-example-deck-of-cards-1" class="slide level2">
 <h2>More example: deck of cards (1)</h2>
+<p><br></p>
 <p>If we consider a red card in a deck of cards (no jokers):</p>
-<p><span class="math display">\[P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5\]</span> <br><br></p>
+<p><br></p>
+<div class="r-fit-text">
+<p><span class="math display">\[P(\text{red card}) = \frac{(26 * \text{red cards})}{(26 * \text{red cards}) + (26 * \text{black cards})} = \frac{26}{56} = \frac{1}{2} =  0.5\]</span></p>
+</div>
 </section>
 <section id="more-example-deck-of-cards-2" class="slide level2">
 <h2>More example: deck of cards (2)</h2>
+<p><br></p>
 <p>What would be the probability of drawing a queen in a full deck of cards (no jokers):</p>
+<p><br></p>
+<div class="r-fit-text">
 <p><span class="math display">\[P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077\]</span></p>
+</div>
 </section>
 <section id="actvity-dice-rolling" class="slide level2">
 <h2>Actvity: Dice rolling</h2>
@@ -228,34 +246,390 @@ Chris Mainey
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn:</h2>
-<h3 id="exercises">Exercises:</h3>
-<p>What are these two situations? First try and answer the questions before looking up the answers on the tabs.</p>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Questions</a></li><li><a href="#tabset-1-2">1.</a></li><li><a href="#tabset-1-3">2</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
+</section>
+<section id="exercises" class="slide level2">
+<h2>Exercises:</h2>
+<p>What are these two situations? Try and assess these in terms of exclusivity and exhaustivity:</p>
 <ol type="1">
 <li><p>Rolling a die and getting either an even number, or any number except 2.</p></li>
 <li><p>Rolling a die and getting either an even number, or any number except 3.</p></li>
 </ol>
-</div>
-<div id="tabset-1-2">
-<p><strong>Exhaustive, not mutually exclusive</strong> Rolling a 4 or a 6 are both even, but the set contains all results. <img src="./assets/img/scenario_2.png" class="right"></p>
-</div>
-<div id="tabset-1-3">
-<p><strong>It’s complicated</strong> Considering A &amp; B, it’s not exhaustive nor exclusive. More like ‘inclusive’ (conditional?) <img src="./assets/img/scenario_3.png" class="right"></p>
-<section id="section-2" class="slide level2">
-<h2></h2>
 </section>
-</div>
-</div>
-</div>
+<section id="even-number-or-any-number-except-2." class="slide level2">
+<h2>1. …even number, or any number except 2.</h2>
+
+<img src="./assets/img/scenario_2.png" class="right r-stretch"><p><strong>Exhaustive, not mutually exclusive</strong></p>
+<p>Rolling a 4 or a 6 are both even, but the set contains all results.</p>
+</section>
+<section id="even-number-or-any-number-except-3." class="slide level2">
+<h2>2. … even number, or any number except 3.</h2>
+
+<img src="./assets/img/scenario_3.png" class="right r-stretch"><p><strong>It’s complicated</strong></p>
+<p>Considering A &amp; B, it’s not exhaustive nor exclusive. More like ‘inclusive’ (conditional?)</p>
+</section>
+<section id="independence-conditionality" class="slide level2">
+<h2>Independence / Conditionality</h2>
+<p>When we are considering more than one event, we have to assess whether or not they are related.</p>
+<ul>
+<li>If two events <strong>do not</strong> have affect on each other, then they can be considered to be <strong>independent</strong>.</li>
+</ul>
 <p><br><br></p>
+<ul>
+<li>If one event has an effect on the subsequent outcomes, then they are considered <strong>condition</strong>.</li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example (1)</h2>
+<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms. What’s the probability of drawing two consecutive red M&amp;Ms? <br></p>
+<div class="fragment">
+<p>Draw 1 = <span class="math inline">\(P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71\)</span></p>
+</div>
+<div class="fragment">
+<p><br> <strong><em>You drew a red.</em></strong></p>
+</div>
+<div class="fragment">
+<p><br> Draw 2 = <span class="math inline">\(P(red) = \frac{4 * red}{(4 * red) + (2 * blue)} = \frac{4}{6} = 0.6\dot{6}\)</span></p>
+</div>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example (2)</h2>
+<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms. What’s the probability of drawing two consecutive red M&amp;Ms?</p>
+<p><br><br> <strong>What would happen if you replaced the red M&amp;M in the bag before the second draw?</strong></p>
+<p><br><br> <strong>How would you describe this situation now?</strong></p>
+</section>
+<section id="conditional-probability" class="slide level2">
+<h2>Conditional Probability</h2>
+<p>We can use <code>|</code> in our notation to show conditional probability: <span class="math inline">\(P(B|A)\)</span></p>
+<p><br> <em>So the probability of B, given that A has happened.</em></p>
+<p><br></p>
+<div class="fragment">
+<p>This leads us to the probability of A and B:</p>
+<p><span class="math display">\[P(\text{A and B})  = P(A) * P(B|A)\]</span></p>
+</div>
+</section>
+<section id="the-mm-example" class="slide level2">
+<h2>The M&amp;M example:</h2>
+<p>Applied to our M&amp;Ms, the probability of drawing two consecutive reds:</p>
+<ul>
+<li>First draw has a denominator of 7</li>
+<li>By removing 1 M&amp;M, the second draw must have a denominator of 6</li>
+</ul>
+<div class="r-fit-text">
+<p><span class="math display">\[P(\text{Draw 2 | Draw 1}) = P(\text{Draw 1}) * P(\text{Draw 2 | Draw 1})) =   \frac{5}{7} * \frac{4}{6} = 0.48\]</span></p>
+</div>
+</section>
+<section id="activity" class="slide level2">
+<h2>Activity</h2>
+<p><br></p>
+<p><strong>Calculate the probability of rolling two 3’s with a fair, six-sided die</strong></p>
+<p><br></p>
+<p><strong>Calculate the (a-priori) probability of rolling a total of 8 with two rolls of a fair, six-sided die</strong></p>
+<p><strong>You will probably need to draw this out.</strong></p>
+</section>
+<section id="odds" class="slide level2">
+<h2>Odds</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We have looked at probability, but ‘odds’ is related:</p>
+<ul>
+<li><p>We keep the same numerator</p></li>
+<li><p>Denominator is 1-numerator</p></li>
+<li><p>Mutually exclusive and exhaustive</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[Odds(A)  =  \frac{P(A)}{1 - P(A)}\]</span> <br></p>
+</div></div>
+</section>
+<section id="example-odd-in-the-coin-toss" class="slide level2">
+<h2>Example: Odd in the coin toss</h2>
+<p><span class="math display">\[Odds(Heads)  =  \frac{P(Heads)}{1 - P(Heads)} = \frac{0.5}{(1-0.5)} = 1 \]</span> … or if you are used to sports betting, we might hear the odds described as 1:1.</p>
+</section>
+<section id="are-odds-and-probability-the-same" class="slide level2">
+<h2>Are Odds and Probability the same?</h2>
+<div class="cell quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="session2_probability_slides_files/figure-revealjs/odds_prob-1.png" width="672"></p>
+<figcaption>Relationship between Odds and Probability</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-all-this-stuff-in-analytics" class="slide level2">
+<h2>Using all this stuff in analytics</h2>
+<ul>
+<li>Used often in PHM and epidemiology / public health</li>
+<li>Used a lot in academic research papers</li>
+<li>Basis for lots of our statistical measure</li>
+</ul>
+<p><br> ### The “2 x 2 table”</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">c</td>
+<td style="text-align: center;">d</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>E = ‘Exposure’, meaning how the groups differ</li>
+<li>O = Outcome, what were the different results in groups</li>
+</ul>
+</div></div>
+</section>
+<section id="extending-the-2x2-table" class="slide level2">
+<h2>Extending the 2x2 table</h2>
+<p>We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics.</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">c</td>
+<td style="text-align: center;">d</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">62</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">550</td>
+<td style="text-align: center;">760</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="prevelence-of-the-outcome" class="slide level2">
+<h2>Prevelence of the outcome</h2>
+<ul>
+<li><p><strong><em>Prevalence:</em></strong> the people in the population with the condition at any given time.</p></li>
+<li><p><strong>Incidence:</strong> the number of new cases in a time period.</p></li>
+<li><p>Both measure relate to a specific time periods, but in different ways.</p></li>
+<li><p>We can calculate the prevalence from the 2 x 2 table.</p></li>
+</ul>
+<div class="r-fit-text">
+<p><span class="math display">\[Prevalence_{o+} = \frac{(a + c)}{(a + b + c + d)} = \frac{(50 + 550)}{(50 + 62 + 550 + 760)} = 2022\]</span></p>
+</div>
+</section>
+<section id="absolute-risk" class="slide level2">
+<h2>Absolute risk</h2>
+<p>When we use ‘absolute’ it refers to real numbers, not relative difference.</p>
+<ul>
+<li><p>Risk of outcome in the exposed group: <span class="math inline">\(R_{E+} = a / (a+b) = 50 / (50 + 62) = 0.45\)</span></p></li>
+<li><p>Risk of outcome in the un-exposed group: <span class="math inline">\(R_{E-} = c / (c+d) = 550 / (550 + 760) = 0.42\)</span></p></li>
+</ul>
+</section>
+<section id="risk-difference" class="slide level2">
+<h2>Risk difference</h2>
+<p>Using the two absolute risk measures, we can calculate the difference:</p>
+<p><span class="math inline">\(\text{Risk Difference} = R_{E+} - R_{E-} = 0.45 - 0.42 = 0.03\)</span></p>
+<p>Interpretation: <em>“3% of the outcomes could be attributed to the exposure, the rest would have happened anyway”</em></p>
+</section>
+<section id="number-needed-to-treat-nnt" class="slide level2">
+<h2>Number Needed to Treat (NNT)</h2>
+<ul>
+<li>This transforms a difference in risk in to real numbers of people.<br>
+</li>
+<li>Measure of how many more people we would need the exposure/treatment for one to benefit.</li>
+</ul>
+<p><span class="math display">\[NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}\]</span></p>
+<p><strong><em>We would need to expose / treat 33 patients to for one to benefit.</em></strong></p>
+</section>
+<section id="relative-risk" class="slide level2">
+<h2>Relative risk</h2>
+<p>One common statistic is the ‘relative risk.’ This is the ratio of risk in two different groups. We may want to compare the risk in each exposure group and get a measure of that relationship.</p>
+<p><span class="math display">\[ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}\]</span></p>
+<ul>
+<li>RR &lt; 1, event is less likely in the exposure group</li>
+<li>RR = 1, event is equally likely in the exposure group</li>
+<li>RR &gt; 1, event is more likely in the exposure group</li>
+</ul>
+</section>
+<section id="odds-ratios" class="slide level2">
+<h2>Odds ratios</h2>
+<ul>
+<li>Odds in exposed group: <span class="math inline">\(a / b\)</span></li>
+<li>Odds in exposed group: <span class="math inline">\(c / d\)</span></li>
+</ul>
+<p>Therefore, the odds ratio: <span class="math display">\[ \text{OR(Exposure+ / Exposure-)} = \frac{a / b}{c/ d}\]</span> <strong><em>The interpretation of an OR is the same as that of an RR, with the word odds substituted for risk</em></strong>.</p>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">c</td>
+<td style="text-align: center;">d</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">42</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">248</td>
+<td style="text-align: center;">3445</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><br></p>
+<h3 id="calculate">Calculate:</h3>
+<ul>
+<li>Risk in each exposure group</li>
+<li>Relative Risk</li>
+<li>NNT</li>
+<li>Odds ratio (if you have time)</li>
+</ul>
+</section>
+<section id="answers-1" class="slide level2">
+<h2>Answers (1):</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">b</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">c</td>
+<td style="text-align: center;">d</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<table class="table-striped table-hover caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">O(+)</th>
+<th style="text-align: center;">O(-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E+</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">42</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E-</td>
+<td style="text-align: center;">248</td>
+<td style="text-align: center;">3445</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<ol type="1">
+<li><p>Risk in the exposure group: <span class="math inline">\(R_{E+} = a / (a+b) = 20 / (20 + 42) = 0.32\)</span></p></li>
+<li><p>Risk in the un-exposed group: <span class="math inline">\(R_{E-} c / (c+d) = 248 / (248 + 3445) = 0.07\)</span></p></li>
+</ol>
+</section>
+<section id="answers-2" class="slide level2">
+<h2>Answers (2):</h2>
+<ol start="3" type="1">
+<li><p>Relative risk <span class="math inline">\(RR_{(R_{E+} / R_{E-})} = 0.32 / 0.07 = 4.57\)</span></p></li>
+<li><p>NNT: <span class="math inline">\(NNT = 1 / (0.32 - 0.07) = 4\)</span></p></li>
+<li><p>Odds ratio: <span class="math display">\[ \text{OR(E+ / E-)} = \frac{a / b}{c/ d} = (20/42)/(248/3445) = 6.61\]</span></p></li>
+</ol>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="assets/img/logo.png" class="slide-logo"></p>
+<p><img src="./assets/img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -415,7 +789,7 @@ Chris Mainey
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
