@@ -173,15 +173,16 @@ __What is the probability of rolling any given number on each die?__
 
 So the coin toss is ___mutually exclusive and exhaustive.___
 
-## Your turn:
-
 
 ## Exercises:
 
 What are these two situations?  Try and assess these in terms of exclusivity and exhaustivity:
 
+<br>
 
 1. Rolling a die and getting either an even number, or any number except 2.
+
+<br>
 
 2. Rolling a die and getting either an even number, or any number except 3.
 
@@ -200,15 +201,21 @@ Rolling a 4 or a 6 are both even, but the set contains all results.
 
 __It's complicated__
 
-Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (conditional?)
+Considering A & B, it's not exhaustive nor exclusive.
 
+## Interlude:
+
+<img src = "https://imgs.xkcd.com/comics/prediction.png" class="center">
+
+Source: __XKCD:__ _A webcomic of romance, sarcasm, math, and language._
+https://xkcd.com/2370
 
 ## Independence / Conditionality
 
 When we are considering more than one event, we have to assess whether or not they are related.
 
 
-* If two events __do not__ have affect on each other, then they can be considered to be __independent__.
+* If two events __do not__ have effects on each other, then they can be considered to be __independent__.
 
 <br><br>
 
@@ -218,6 +225,7 @@ When we are considering more than one event, we have to assess whether or not th
 
 You have a bag of "M&Ms", containing two blue and 5 red M&Ms.
 What's the probability of drawing two consecutive red M&Ms?
+
 <br>
 
 :::{.fragment}
@@ -397,6 +405,8 @@ We often use the 2 x 2 table in epidemiology to express the probability of event
 
 ## Prevelence of the outcome
 
+<br>
+
 + ___Prevalence:___ the people in the population with the condition at any given time.  
 
 + __Incidence:__ the number of new cases in a time period.  
@@ -405,20 +415,30 @@ We often use the 2 x 2 table in epidemiology to express the probability of event
 
 + We can calculate the prevalence from the 2 x 2 table.
 
+<br>
+
 ::: {.r-fit-text}
 $$Prevalence_{o+} = \frac{(a + c)}{(a + b + c + d)} = \frac{(50 + 550)}{(50 + 62 + 550 + 760)} = 2022$$
 :::
 
 ## Absolute risk
 
+<br>
+
 When we use 'absolute' it refers to real numbers, not relative difference.
 
+<br>
+
 * Risk of outcome in the exposed group: $R_{E+} = a / (a+b) = 50 / (50 + 62) = 0.45$
+
+<br>
 
 * Risk of outcome in the un-exposed group: $R_{E-} = c / (c+d) = 550 / (550 + 760) = 0.42$
 
 
 ## Risk difference
+
+<br>
 
 Using the two absolute risk measures, we can calculate the difference:
 
@@ -429,8 +449,16 @@ Interpretation: _"3% of the outcomes could be attributed to the exposure, the re
 
 ## Number Needed to Treat (NNT)
 
+<br>
+
 + This transforms a difference in risk in to real numbers of people.  
+
+<br>
+
 + Measure of how many more people we would need the exposure/treatment for one to benefit.
+
+
+<br>
 
 $$NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}$$
 
@@ -446,6 +474,12 @@ $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 + RR = 1, event is equally likely in the exposure group
 + RR > 1, event is more likely in the exposure group
 
+## Interlude
+
+<img src = "https://imgs.xkcd.com/comics/increased_risk.png" class="center">
+
+Source: __XKCD:__ _A webcomic of romance, sarcasm, math, and language._
+https://xkcd.com/1215
 
 
 ## Odds ratios
@@ -522,12 +556,26 @@ $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 
 1. Risk in the exposure group: $R_{E+} = a / (a+b) = 20 / (20 + 42) = 0.32$
 
+<br>
+
 2. Risk in the un-exposed group: $R_{E-} c / (c+d) = 248 / (248 + 3445) = 0.07$
 
 ## Answers (2):
 
 3. Relative risk $RR_{(R_{E+} / R_{E-})} = 0.32 / 0.07 = 4.57$
 
+<br>
+
 4. NNT: $NNT = 1 / (0.32 - 0.07) = 4$
 
+<br>
+
 5. Odds ratio:  $$ \text{OR(E+ / E-)} = \frac{a / b}{c/ d} = (20/42)/(248/3445) = 6.61$$
+
+## Fin
+
+<img src = "https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png" class="center">
+
+Source: __XKCD:__ _A webcomic of romance, sarcasm, math, and language._
+https://xkcd.com/2599
+

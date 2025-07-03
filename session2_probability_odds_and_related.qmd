@@ -198,7 +198,7 @@ Rolling a 4 or a 6 are both even, but the set contains all results.
 ## 2
 
 __It's complicated__
-Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (conditional?)
+Considering A & B, it's not exhaustive nor exclusive.
 <img src = "./assets/img/scenario_3.png" class="right">
 
 ##
@@ -211,10 +211,10 @@ Considering A & B, it's not exhaustive nor exclusive.  More like 'inclusive' (co
 When we are considering more than one event, we have to assess whether or not they are related.  There are two main ways in which they can be related:
 
 
-* If two events __do not__ have affect on each other, then they can be considered to be __independent__.  E.g. two coin tosses are perfectly isolated, and the previous toss does not affect it, nor does the subsequent coin toss. Both coin tosses
+* If two events __do not__ have effects on each other, then they can be considered to be ___independent___.  E.g. two coin tosses are perfectly isolated, and the previous toss does not affect it, nor does the subsequent coin toss. Both coin tosses
 <br><br>
 
-* If one event has an effect on the subsequent outcomes, then they are considered condition.  E.g. probability of drawing two consecutive red M&M from a bag that contains two blue and five red M&Ms left:
+* If one event has an effect on the subsequent outcomes, then they are considered ___conditional___.  E.g. probability of drawing two consecutive red M&M from a bag that contains two blue and five red M&Ms left:
 
 <br><br>
 

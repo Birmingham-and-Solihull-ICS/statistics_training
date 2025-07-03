@@ -244,15 +244,16 @@ Chris Mainey
 </ul>
 <p>So the coin toss is <strong><em>mutually exclusive and exhaustive.</em></strong></p>
 </section>
-<section id="your-turn" class="slide level2">
-<h2>Your turn:</h2>
-</section>
 <section id="exercises" class="slide level2">
 <h2>Exercises:</h2>
 <p>What are these two situations? Try and assess these in terms of exclusivity and exhaustivity:</p>
+<p><br></p>
 <ol type="1">
-<li><p>Rolling a die and getting either an even number, or any number except 2.</p></li>
-<li><p>Rolling a die and getting either an even number, or any number except 3.</p></li>
+<li>Rolling a die and getting either an even number, or any number except 2.</li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li>Rolling a die and getting either an even number, or any number except 3.</li>
 </ol>
 </section>
 <section id="even-number-or-any-number-except-2." class="slide level2">
@@ -265,13 +266,18 @@ Chris Mainey
 <h2>2. … even number, or any number except 3.</h2>
 
 <img src="./assets/img/scenario_3.png" class="right r-stretch"><p><strong>It’s complicated</strong></p>
-<p>Considering A &amp; B, it’s not exhaustive nor exclusive. More like ‘inclusive’ (conditional?)</p>
+<p>Considering A &amp; B, it’s not exhaustive nor exclusive.</p>
+</section>
+<section id="interlude" class="slide level2">
+<h2>Interlude:</h2>
+
+<img src="https://imgs.xkcd.com/comics/prediction.png" class="center r-stretch"><p>Source: <strong>XKCD:</strong> <em>A webcomic of romance, sarcasm, math, and language.</em> https://xkcd.com/2370</p>
 </section>
 <section id="independence-conditionality" class="slide level2">
 <h2>Independence / Conditionality</h2>
 <p>When we are considering more than one event, we have to assess whether or not they are related.</p>
 <ul>
-<li>If two events <strong>do not</strong> have affect on each other, then they can be considered to be <strong>independent</strong>.</li>
+<li>If two events <strong>do not</strong> have effects on each other, then they can be considered to be <strong>independent</strong>.</li>
 </ul>
 <p><br><br></p>
 <ul>
@@ -280,7 +286,8 @@ Chris Mainey
 </section>
 <section id="example-1" class="slide level2">
 <h2>Example (1)</h2>
-<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms. What’s the probability of drawing two consecutive red M&amp;Ms? <br></p>
+<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms. What’s the probability of drawing two consecutive red M&amp;Ms?</p>
+<p><br></p>
 <div class="fragment">
 <p>Draw 1 = <span class="math inline">\(P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71\)</span></p>
 </div>
@@ -452,37 +459,49 @@ Chris Mainey
 </section>
 <section id="prevelence-of-the-outcome" class="slide level2">
 <h2>Prevelence of the outcome</h2>
+<p><br></p>
 <ul>
 <li><p><strong><em>Prevalence:</em></strong> the people in the population with the condition at any given time.</p></li>
 <li><p><strong>Incidence:</strong> the number of new cases in a time period.</p></li>
 <li><p>Both measure relate to a specific time periods, but in different ways.</p></li>
 <li><p>We can calculate the prevalence from the 2 x 2 table.</p></li>
 </ul>
+<p><br></p>
 <div class="r-fit-text">
 <p><span class="math display">\[Prevalence_{o+} = \frac{(a + c)}{(a + b + c + d)} = \frac{(50 + 550)}{(50 + 62 + 550 + 760)} = 2022\]</span></p>
 </div>
 </section>
 <section id="absolute-risk" class="slide level2">
 <h2>Absolute risk</h2>
+<p><br></p>
 <p>When we use ‘absolute’ it refers to real numbers, not relative difference.</p>
+<p><br></p>
 <ul>
-<li><p>Risk of outcome in the exposed group: <span class="math inline">\(R_{E+} = a / (a+b) = 50 / (50 + 62) = 0.45\)</span></p></li>
-<li><p>Risk of outcome in the un-exposed group: <span class="math inline">\(R_{E-} = c / (c+d) = 550 / (550 + 760) = 0.42\)</span></p></li>
+<li>Risk of outcome in the exposed group: <span class="math inline">\(R_{E+} = a / (a+b) = 50 / (50 + 62) = 0.45\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li>Risk of outcome in the un-exposed group: <span class="math inline">\(R_{E-} = c / (c+d) = 550 / (550 + 760) = 0.42\)</span></li>
 </ul>
 </section>
 <section id="risk-difference" class="slide level2">
 <h2>Risk difference</h2>
+<p><br></p>
 <p>Using the two absolute risk measures, we can calculate the difference:</p>
 <p><span class="math inline">\(\text{Risk Difference} = R_{E+} - R_{E-} = 0.45 - 0.42 = 0.03\)</span></p>
 <p>Interpretation: <em>“3% of the outcomes could be attributed to the exposure, the rest would have happened anyway”</em></p>
 </section>
 <section id="number-needed-to-treat-nnt" class="slide level2">
 <h2>Number Needed to Treat (NNT)</h2>
+<p><br></p>
 <ul>
-<li>This transforms a difference in risk in to real numbers of people.<br>
-</li>
+<li>This transforms a difference in risk in to real numbers of people.</li>
+</ul>
+<p><br></p>
+<ul>
 <li>Measure of how many more people we would need the exposure/treatment for one to benefit.</li>
 </ul>
+<p><br></p>
 <p><span class="math display">\[NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}\]</span></p>
 <p><strong><em>We would need to expose / treat 33 patients to for one to benefit.</em></strong></p>
 </section>
@@ -495,6 +514,11 @@ Chris Mainey
 <li>RR = 1, event is equally likely in the exposure group</li>
 <li>RR &gt; 1, event is more likely in the exposure group</li>
 </ul>
+</section>
+<section id="interlude-1" class="slide level2">
+<h2>Interlude</h2>
+
+<img src="https://imgs.xkcd.com/comics/increased_risk.png" class="center r-stretch"><p>Source: <strong>XKCD:</strong> <em>A webcomic of romance, sarcasm, math, and language.</em> https://xkcd.com/1215</p>
 </section>
 <section id="odds-ratios" class="slide level2">
 <h2>Odds ratios</h2>
@@ -614,17 +638,31 @@ Chris Mainey
 </table>
 </div></div>
 <ol type="1">
-<li><p>Risk in the exposure group: <span class="math inline">\(R_{E+} = a / (a+b) = 20 / (20 + 42) = 0.32\)</span></p></li>
-<li><p>Risk in the un-exposed group: <span class="math inline">\(R_{E-} c / (c+d) = 248 / (248 + 3445) = 0.07\)</span></p></li>
+<li>Risk in the exposure group: <span class="math inline">\(R_{E+} = a / (a+b) = 20 / (20 + 42) = 0.32\)</span></li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li>Risk in the un-exposed group: <span class="math inline">\(R_{E-} c / (c+d) = 248 / (248 + 3445) = 0.07\)</span></li>
 </ol>
 </section>
 <section id="answers-2" class="slide level2">
 <h2>Answers (2):</h2>
 <ol start="3" type="1">
-<li><p>Relative risk <span class="math inline">\(RR_{(R_{E+} / R_{E-})} = 0.32 / 0.07 = 4.57\)</span></p></li>
-<li><p>NNT: <span class="math inline">\(NNT = 1 / (0.32 - 0.07) = 4\)</span></p></li>
-<li><p>Odds ratio: <span class="math display">\[ \text{OR(E+ / E-)} = \frac{a / b}{c/ d} = (20/42)/(248/3445) = 6.61\]</span></p></li>
+<li>Relative risk <span class="math inline">\(RR_{(R_{E+} / R_{E-})} = 0.32 / 0.07 = 4.57\)</span></li>
 </ol>
+<p><br></p>
+<ol start="4" type="1">
+<li>NNT: <span class="math inline">\(NNT = 1 / (0.32 - 0.07) = 4\)</span></li>
+</ol>
+<p><br></p>
+<ol start="5" type="1">
+<li>Odds ratio: <span class="math display">\[ \text{OR(E+ / E-)} = \frac{a / b}{c/ d} = (20/42)/(248/3445) = 6.61\]</span></li>
+</ol>
+</section>
+<section id="fin" class="slide level2">
+<h2>Fin</h2>
+
+<img src="https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png" class="center r-stretch"><p>Source: <strong>XKCD:</strong> <em>A webcomic of romance, sarcasm, math, and language.</em> https://xkcd.com/2599</p>
 
 </section>
     </div>
