@@ -73,6 +73,9 @@ Main things to be aware of are:
 * __Outcome:__ The possible result we are interested in.  E.g. death, developing a disease
 * __Exposure:__ Groups that are systematically different who's outcomes we might be interested in. E.g. treatment / control
 
+## Read to go?
+
+<div class="tenor-gif-embed" data-postid="7111727192603868283" data-share-method="host" data-aspect-ratio="1.76596" data-width="100%"><a href="https://tenor.com/view/bilmuri-thumbs-up-good-gif-7111727192603868283">Bilmuri Thumbs Up GIF</a>from <a href="https://tenor.com/search/bilmuri-gifs">Bilmuri GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 ## Activity:  Coin toss
 
@@ -345,6 +348,10 @@ odds_prob |>
 
 
 ```
+
+## Next:
+
+<iframe src="https://giphy.com/embed/oWWfwpLj5l0XK" width="480" height="240" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/monty-python-and-now-for-something-completely-different-oWWfwpLj5l0XK">via GIPHY</a></p>
 
 ## Using all this stuff in analytics
 
