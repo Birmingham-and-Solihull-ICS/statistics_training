@@ -516,8 +516,9 @@ $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 + RR > 1, event is more likely in the exposure group
 
 ## Interlude
-
+<div style="text-align: center;">
 <img src = "https://imgs.xkcd.com/comics/increased_risk.png" class="center">
+</div>
 
 Source: __XKCD:__ _A webcomic of romance, sarcasm, math, and language._
 https://xkcd.com/1215
