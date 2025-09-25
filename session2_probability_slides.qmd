@@ -65,6 +65,7 @@ theme_set(
 + Commonly using statistics to infer things from data: known as ___statistical inference___
 + Built on ___probability theory___
 
+
 ## Terminology 
 
 Main things to be aware of are:
@@ -152,7 +153,7 @@ What would be the probability of drawing a queen in a full deck of cards (no jok
 $$P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077$$
 :::
 
-## Actvity:  Dice rolling
+## Activity:  Dice rolling
 
 Roll 2 dice at least 24 times and note them down.  Write each possible number down: 1 - 12, and make a tally of each roll.
 <br><br>
@@ -167,13 +168,32 @@ __What is the probability of rolling any given number on each die?__
 <br>
 
 
-## Types of relationships within probablity
+## Types of relationships: {.center}
 
-* ___Exclusivity:___ If we have more than one event, but one event prevents any other, we refer to it as exclusive 'exclusive'. E.g. a coin toss being 'heads' mean it is not 'tails'.
+When we are considering more than one event, we have to assess the relationship between them.
 
-* ___Exhaustive:___ If we have accounted for all possible outcomes, we can consider the options 'exhausted.' E.g.  coin toss: probability of heads and probability of tails accounts for all options.
+##
+
+___Exclusivity:___ If one event prevents any other, we refer to it as exclusive 'exclusive'. E.g. a coin toss being 'heads' mean it is not 'tails'.
+
+<!-- <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding:0px; margin:0px;"> -->
+<!-- <img src = "./assets/img/mutually_exclusive.png"> -->
+<!-- </div> -->
+
+<div style="text-align: center;">
+<img src="./assets/img/mutually_exclusive.png" alt="mutually exclusive" style="width: 50%; height: 50%;">
+</div>
 
 
+##
+
+___Exhaustive:___ If we have accounted for all possible outcomes, we can consider the options 'exhausted.' E.g.  coin toss: probability of heads and probability of tails accounts for all options.
+<br>
+<div style="text-align: center;">
+<img src = "./assets/img/mutually_exhaustive.png" alt="mutually exhaustive" style="width: 50%; height: 50%;">
+</div>
+
+## {.center}
 So the coin toss is ___mutually exclusive and exhaustive.___
 
 
@@ -190,18 +210,18 @@ What are these two situations?  Try and assess these in terms of exclusivity and
 2. Rolling a die and getting either an even number, or any number except 3.
 
 ## 1. ...even number, or any number except 2.
-
-<img src = "./assets/img/scenario_2.png" class="right">
-
+<div style="text-align: center;">
+<img src = "./assets/img/scenario_2.png" class="right" style="width: 50%; height: 50%;">
+</div>
 __Exhaustive,  not mutually exclusive__
 
 Rolling a 4 or a 6 are both even, but the set contains all results. 
 
 
 ## 2. ... even number, or any number except 3.
-
-<img src = "./assets/img/scenario_3.png" class="right">
-
+<div style="text-align: center;">
+<img src = "./assets/img/scenario_3.png" class="right" style="width: 50%; height: 50%;">
+</div>
 __It's complicated__
 
 Considering A & B, it's not exhaustive nor exclusive.
@@ -224,10 +244,19 @@ When we are considering more than one event, we have to assess whether or not th
 
 * If one event has an effect on the subsequent outcomes, then they are considered __condition__.
 
+## Let's apply it
+
+<br>
+<div style="text-align: center;">
+<iframe src="https://giphy.com/embed/l1KsJFgH8wHFKUOPu" width="480" height="350" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/90s-1990s-commercials-l1KsJFgH8wHFKUOPu">via GIPHY</a></p>
+</div>
+
+
 ## Example (1)
 
 You have a bag of "M&Ms", containing two blue and 5 red M&Ms.
-What's the probability of drawing two consecutive red M&Ms?
+
+__What's the probability of drawing two consecutive red M&Ms?__
 
 <br>
 
@@ -248,7 +277,8 @@ Draw 2 = $P(red) = \frac{4 * red}{(4 * red) + (2 * blue)} = \frac{4}{6} = 0.6\do
 ## Example (2)
 
 You have a bag of "M&Ms", containing two blue and 5 red M&Ms.
-What's the probability of drawing two consecutive red M&Ms?
+
+__What's the probability of drawing two consecutive red M&Ms?__
 
 <br><br>
 __What would happen if you replaced the red M&M in the bag before the second draw?__
@@ -295,7 +325,7 @@ __Calculate the probability of rolling two 3's with a fair, six-sided die__
 
 __Calculate the (a-priori) probability of rolling a total of 8 with two rolls of a fair, six-sided die__
 
-__You will probably need to draw this out.__
+__Hint:__ _You will need to draw this out and count_
 
 
 ## Odds
@@ -314,14 +344,14 @@ We have looked at probability, but 'odds' is related:
 :::
 
 ::: {.column width="50%"}
-<br>
+<br><br>
 $$Odds(A)  =  \frac{P(A)}{1 - P(A)}$$
 <br>
 :::
 ::::
 
 ## Example: Odd in the coin toss
-
+<br><br>
 $$Odds(Heads)  =  \frac{P(Heads)}{1 - P(Heads)} = \frac{0.5}{(1-0.5)} = 1 $$
 ... or if you are used to sports betting, we might hear the odds described as 1:1.
 
@@ -351,15 +381,18 @@ odds_prob |>
 
 ## Next:
 
-<iframe src="https://giphy.com/embed/oWWfwpLj5l0XK" width="480" height="240" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/monty-python-and-now-for-something-completely-different-oWWfwpLj5l0XK">via GIPHY</a></p>
+
+<div style="text-align: center;">
+<iframe src="https://giphy.com/embed/oWWfwpLj5l0XK" width="800" height="600" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/monty-python-and-now-for-something-completely-different-oWWfwpLj5l0XK">via GIPHY</a></p>
+</div>
 
 ## Using all this stuff in analytics
 
 + Used often in PHM and epidemiology / public health
-+ Used a lot in academic research papers
 + Basis for lots of our statistical measure
 
 <br>
+
 ### The "2 x 2 table"
 
 :::: {.columns}
@@ -380,9 +413,9 @@ odds_prob |>
 
 ::::
 
-## Extending the 2x2 table
+## Using the 2x2 table
 
-We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics.
+We often use the 2 x 2 table in epidemiology to express the probability of events.  We can use different sums from the table to express different elements of the data.
 
 <br>
 
@@ -412,7 +445,6 @@ We often use the 2 x 2 table in epidemiology to express the probability of event
 
 ## Prevelence of the outcome
 
-<br>
 
 + ___Prevalence:___ the people in the population with the condition at any given time.  
 
@@ -449,8 +481,11 @@ When we use 'absolute' it refers to real numbers, not relative difference.
 
 Using the two absolute risk measures, we can calculate the difference:
 
+<br>
+
 $\text{Risk Difference} = R_{E+} - R_{E-} = 0.45 - 0.42 = 0.03$
 
+<br>
 Interpretation: _"3% of the outcomes could be attributed to the exposure, the rest would have happened anyway"_
 
 
@@ -460,7 +495,6 @@ Interpretation: _"3% of the outcomes could be attributed to the exposure, the re
 
 + This transforms a difference in risk in to real numbers of people.  
 
-<br>
 
 + Measure of how many more people we would need the exposure/treatment for one to benefit.
 
@@ -469,11 +503,11 @@ Interpretation: _"3% of the outcomes could be attributed to the exposure, the re
 
 $$NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}$$
 
-___We would need to expose / treat 33 patients to for one to benefit.___
+___We would need to expose / treat 33 patients for one to benefit.___
 
 ## Relative risk
 
-One common statistic is the 'relative risk.'  This is the ratio of risk in two different groups.  We may want to compare the risk in each exposure group and get a measure of that relationship.
+This is the ratio of risk in two different (exposure) groups.  We may want to compare the risk in each exposure group and get a measure of that relationship.
 
 $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 
@@ -580,9 +614,11 @@ https://xkcd.com/1215
 5. Odds ratio:  $$ \text{OR(E+ / E-)} = \frac{a / b}{c/ d} = (20/42)/(248/3445) = 6.61$$
 
 ## Fin
-
+<div style="text-align: center;">
 <img src = "https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png" class="center">
+</div>
 
+::: {tag}
 Source: __XKCD:__ _A webcomic of romance, sarcasm, math, and language._
 https://xkcd.com/2599
-
+:::

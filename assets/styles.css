@@ -8,3 +8,11 @@ body {
 font-size: 100% !important;
 color: #333;
 }
+
+.center h2 {
+  text-align: center;
+}
+
+.tag {
+  font-size: 75%
+}

@@ -6,8 +6,8 @@
 <script src="session2_probability_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="session2_probability_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="session2_probability_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="session2_probability_slides_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="session2_probability_slides_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Chris Mainey">
   <meta name="dcterms.date" content="2025-06-20">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="session2_probability_slides_files/libs/revealjs/dist/theme/quarto-8cfaece65a90d4c553be6314966a9e04.css">
+  <link rel="stylesheet" href="session2_probability_slides_files/libs/revealjs/dist/theme/quarto-1eee081bd7feea23ed7b5aad5aa644e6.css">
   <link rel="stylesheet" href="./assets/styles.css">
   <link href="session2_probability_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="session2_probability_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -236,19 +236,36 @@ Chris Mainey
 <p><span class="math display">\[P(\text{queen}) = \frac{(4 * \text{queen})}{(52 * cards)} = \frac{4}{52} = \frac{1}{13} =  0.077\]</span></p>
 </div>
 </section>
-<section id="actvity-dice-rolling" class="slide level2">
-<h2>Actvity: Dice rolling</h2>
+<section id="activity-dice-rolling" class="slide level2">
+<h2>Activity: Dice rolling</h2>
 <p>Roll 2 dice at least 24 times and note them down. Write each possible number down: 1 - 12, and make a tally of each roll. <br><br> <strong>What do you see?</strong></p>
 <p><br> <strong>How would you calculate the probability of rolling each number?</strong></p>
 <p><br> <strong>What is the probability of rolling any given number on each die?</strong></p>
 <p><br></p>
 </section>
-<section id="types-of-relationships-within-probablity" class="slide level2">
-<h2>Types of relationships within probablity</h2>
-<ul>
-<li><p><strong><em>Exclusivity:</em></strong> If we have more than one event, but one event prevents any other, we refer to it as exclusive ‘exclusive’. E.g. a coin toss being ‘heads’ mean it is not ‘tails’.</p></li>
-<li><p><strong><em>Exhaustive:</em></strong> If we have accounted for all possible outcomes, we can consider the options ‘exhausted.’ E.g. coin toss: probability of heads and probability of tails accounts for all options.</p></li>
-</ul>
+<section id="types-of-relationships" class="slide level2 center">
+<h2>Types of relationships:</h2>
+<p>When we are considering more than one event, we have to assess the relationship between them.</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><strong><em>Exclusivity:</em></strong> If one event prevents any other, we refer to it as exclusive ‘exclusive’. E.g. a coin toss being ‘heads’ mean it is not ‘tails’.</p>
+<!-- <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding:0px; margin:0px;"> -->
+<!-- <img src = "./assets/img/mutually_exclusive.png"> -->
+<!-- </div> -->
+<div style="text-align: center;">
+<p><img src="./assets/img/mutually_exclusive.png" alt="mutually exclusive" style="width: 50%; height: 50%;"></p>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<strong><em>Exhaustive:</em></strong> If we have accounted for all possible outcomes, we can consider the options ‘exhausted.’ E.g. coin toss: probability of heads and probability of tails accounts for all options. <br>
+<div style="text-align: center;">
+<p><img src="./assets/img/mutually_exhaustive.png" alt="mutually exhaustive" style="width: 50%; height: 50%;"></p>
+</div>
+</section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
 <p>So the coin toss is <strong><em>mutually exclusive and exhaustive.</em></strong></p>
 </section>
 <section id="exercises" class="slide level2">
@@ -265,14 +282,18 @@ Chris Mainey
 </section>
 <section id="even-number-or-any-number-except-2." class="slide level2">
 <h2>1. …even number, or any number except 2.</h2>
-
-<img src="./assets/img/scenario_2.png" class="right r-stretch"><p><strong>Exhaustive, not mutually exclusive</strong></p>
+<div style="text-align: center;">
+<p><img src="./assets/img/scenario_2.png" class="right" style="width: 50%; height: 50%;"></p>
+</div>
+<p><strong>Exhaustive, not mutually exclusive</strong></p>
 <p>Rolling a 4 or a 6 are both even, but the set contains all results.</p>
 </section>
 <section id="even-number-or-any-number-except-3." class="slide level2">
 <h2>2. … even number, or any number except 3.</h2>
-
-<img src="./assets/img/scenario_3.png" class="right r-stretch"><p><strong>It’s complicated</strong></p>
+<div style="text-align: center;">
+<p><img src="./assets/img/scenario_3.png" class="right" style="width: 50%; height: 50%;"></p>
+</div>
+<p><strong>It’s complicated</strong></p>
 <p>Considering A &amp; B, it’s not exhaustive nor exclusive.</p>
 </section>
 <section id="interlude" class="slide level2">
@@ -291,9 +312,21 @@ Chris Mainey
 <li>If one event has an effect on the subsequent outcomes, then they are considered <strong>condition</strong>.</li>
 </ul>
 </section>
+<section id="lets-apply-it" class="slide level2">
+<h2>Let’s apply it</h2>
+<br>
+<div style="text-align: center;">
+<iframe src="https://giphy.com/embed/l1KsJFgH8wHFKUOPu" width="480" height="350" style="" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/90s-1990s-commercials-l1KsJFgH8wHFKUOPu">via GIPHY</a>
+</p>
+</div>
+</section>
 <section id="example-1" class="slide level2">
 <h2>Example (1)</h2>
-<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms. What’s the probability of drawing two consecutive red M&amp;Ms?</p>
+<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms.</p>
+<p><strong>What’s the probability of drawing two consecutive red M&amp;Ms?</strong></p>
 <p><br></p>
 <div class="fragment">
 <p>Draw 1 = <span class="math inline">\(P(red) = \frac{5 * red}{(5 * red) + (2 * blue)} = \frac{5}{7} = 0.71\)</span></p>
@@ -307,7 +340,8 @@ Chris Mainey
 </section>
 <section id="example-2" class="slide level2">
 <h2>Example (2)</h2>
-<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms. What’s the probability of drawing two consecutive red M&amp;Ms?</p>
+<p>You have a bag of “M&amp;Ms”, containing two blue and 5 red M&amp;Ms.</p>
+<p><strong>What’s the probability of drawing two consecutive red M&amp;Ms?</strong></p>
 <p><br><br> <strong>What would happen if you replaced the red M&amp;M in the bag before the second draw?</strong></p>
 <p><br><br> <strong>How would you describe this situation now?</strong></p>
 </section>
@@ -338,7 +372,7 @@ Chris Mainey
 <p><strong>Calculate the probability of rolling two 3’s with a fair, six-sided die</strong></p>
 <p><br></p>
 <p><strong>Calculate the (a-priori) probability of rolling a total of 8 with two rolls of a fair, six-sided die</strong></p>
-<p><strong>You will probably need to draw this out.</strong></p>
+<p><strong>Hint:</strong> <em>You will need to draw this out and count</em></p>
 </section>
 <section id="odds" class="slide level2">
 <h2>Odds</h2>
@@ -351,12 +385,12 @@ Chris Mainey
 <li><p>Mutually exclusive and exhaustive</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<p><br> <span class="math display">\[Odds(A)  =  \frac{P(A)}{1 - P(A)}\]</span> <br></p>
+<p><br><br> <span class="math display">\[Odds(A)  =  \frac{P(A)}{1 - P(A)}\]</span> <br></p>
 </div></div>
 </section>
 <section id="example-odd-in-the-coin-toss" class="slide level2">
 <h2>Example: Odd in the coin toss</h2>
-<p><span class="math display">\[Odds(Heads)  =  \frac{P(Heads)}{1 - P(Heads)} = \frac{0.5}{(1-0.5)} = 1 \]</span> … or if you are used to sports betting, we might hear the odds described as 1:1.</p>
+<p><br><br> <span class="math display">\[Odds(Heads)  =  \frac{P(Heads)}{1 - P(Heads)} = \frac{0.5}{(1-0.5)} = 1 \]</span> … or if you are used to sports betting, we might hear the odds described as 1:1.</p>
 </section>
 <section id="are-odds-and-probability-the-same" class="slide level2">
 <h2>Are Odds and Probability the same?</h2>
@@ -375,20 +409,22 @@ Chris Mainey
 </section>
 <section id="next" class="slide level2">
 <h2>Next:</h2>
-<iframe src="https://giphy.com/embed/oWWfwpLj5l0XK" width="480" height="240" style="" frameborder="0" class="giphy-embed" allowfullscreen="">
+<div style="text-align: center;">
+<iframe src="https://giphy.com/embed/oWWfwpLj5l0XK" width="800" height="600" style="" frameborder="0" class="giphy-embed" allowfullscreen="">
 </iframe>
 <p>
 <a href="https://giphy.com/gifs/monty-python-and-now-for-something-completely-different-oWWfwpLj5l0XK">via GIPHY</a>
 </p>
+</div>
 </section>
 <section id="using-all-this-stuff-in-analytics" class="slide level2">
 <h2>Using all this stuff in analytics</h2>
 <ul>
 <li>Used often in PHM and epidemiology / public health</li>
-<li>Used a lot in academic research papers</li>
 <li>Basis for lots of our statistical measure</li>
 </ul>
-<p><br> ### The “2 x 2 table”</p>
+<p><br></p>
+<h3 id="the-2-x-2-table">The “2 x 2 table”</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <table class="table-striped table-hover caption-top">
@@ -419,9 +455,9 @@ Chris Mainey
 </ul>
 </div></div>
 </section>
-<section id="extending-the-2x2-table" class="slide level2">
-<h2>Extending the 2x2 table</h2>
-<p>We often use the 2 x 2 table in epidemiology to express the probability of events and it is a way to help us classify the different counts and calculate the summary statistics.</p>
+<section id="using-the-2x2-table" class="slide level2">
+<h2>Using the 2x2 table</h2>
+<p>We often use the 2 x 2 table in epidemiology to express the probability of events. We can use different sums from the table to express different elements of the data.</p>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:45%;">
@@ -474,7 +510,6 @@ Chris Mainey
 </section>
 <section id="prevelence-of-the-outcome" class="slide level2">
 <h2>Prevelence of the outcome</h2>
-<p><br></p>
 <ul>
 <li><p><strong><em>Prevalence:</em></strong> the people in the population with the condition at any given time.</p></li>
 <li><p><strong>Incidence:</strong> the number of new cases in a time period.</p></li>
@@ -503,26 +538,24 @@ Chris Mainey
 <h2>Risk difference</h2>
 <p><br></p>
 <p>Using the two absolute risk measures, we can calculate the difference:</p>
+<p><br></p>
 <p><span class="math inline">\(\text{Risk Difference} = R_{E+} - R_{E-} = 0.45 - 0.42 = 0.03\)</span></p>
-<p>Interpretation: <em>“3% of the outcomes could be attributed to the exposure, the rest would have happened anyway”</em></p>
+<p><br> Interpretation: <em>“3% of the outcomes could be attributed to the exposure, the rest would have happened anyway”</em></p>
 </section>
 <section id="number-needed-to-treat-nnt" class="slide level2">
 <h2>Number Needed to Treat (NNT)</h2>
 <p><br></p>
 <ul>
-<li>This transforms a difference in risk in to real numbers of people.</li>
-</ul>
-<p><br></p>
-<ul>
-<li>Measure of how many more people we would need the exposure/treatment for one to benefit.</li>
+<li><p>This transforms a difference in risk in to real numbers of people.</p></li>
+<li><p>Measure of how many more people we would need the exposure/treatment for one to benefit.</p></li>
 </ul>
 <p><br></p>
 <p><span class="math display">\[NNT = 1 / (RD) = 1 / 0.03 = 33.\dot{3}\]</span></p>
-<p><strong><em>We would need to expose / treat 33 patients to for one to benefit.</em></strong></p>
+<p><strong><em>We would need to expose / treat 33 patients for one to benefit.</em></strong></p>
 </section>
 <section id="relative-risk" class="slide level2">
 <h2>Relative risk</h2>
-<p>One common statistic is the ‘relative risk.’ This is the ratio of risk in two different groups. We may want to compare the risk in each exposure group and get a measure of that relationship.</p>
+<p>This is the ratio of risk in two different (exposure) groups. We may want to compare the risk in each exposure group and get a measure of that relationship.</p>
 <p><span class="math display">\[ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}\]</span></p>
 <ul>
 <li>RR &lt; 1, event is less likely in the exposure group</li>
@@ -676,8 +709,12 @@ Chris Mainey
 </section>
 <section id="fin" class="slide level2">
 <h2>Fin</h2>
-
-<img src="https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png" class="center r-stretch"><p>Source: <strong>XKCD:</strong> <em>A webcomic of romance, sarcasm, math, and language.</em> https://xkcd.com/2599</p>
+<div style="text-align: center;">
+<p><img src="https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png" class="center"></p>
+</div>
+<div class="{tag}">
+<p>Source: <strong>XKCD:</strong> <em>A webcomic of romance, sarcasm, math, and language.</em> https://xkcd.com/2599</p>
+</div>
 
 </section>
     </div>
@@ -870,7 +907,7 @@ Chris Mainey
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1020,13 +1057,14 @@ Chris Mainey
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
