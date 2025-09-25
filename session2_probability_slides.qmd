@@ -288,7 +288,7 @@ __How would you describe this situation now?__
 
 ## Conditional Probability
 
-We can use `|` in our notation to show conditional probability: $P(B|A)$
+We can use __|__ in our notation to show conditional probability: $P(B|A)$
 
 <br>
 _So the probability of B, given that A has happened._
@@ -516,7 +516,7 @@ $$ RR_{(E+ / E-)} = \frac{a / (a + b)}{c/ (c + d)}$$
 + RR > 1, event is more likely in the exposure group
 
 ## Interlude
-<div style="text-align: center;">
+<div style="text-align: center;" width="110%">
 <img src = "https://imgs.xkcd.com/comics/increased_risk.png" class="center">
 </div>
 
